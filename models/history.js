@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const { v4: uuidv4 } = require("uuid");
 module.exports = (sequelize, DataTypes) => {
   class History extends Model {
     /**
@@ -12,16 +11,24 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  History.init({
-    userId: DataTypes.STRING,
-    transactionId: DataTypes.STRING,
-    date: DataTypes.DATE,
-    status: DataTypes.STRING,
-    paymentDate: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'History',
-  });
+  }
+  History.init(
+    {
+      userId: DataTypes.UUID,
+      transactionId: DataTypes.UUID,
+      date: DataTypes.DATE,
+      status: DataTypes.STRING,
+      paymentDate: DataTypes.DATE,
+    },
+    {
+      hooks: {
+        beforeCreate(instance) {
+          instance.id = uuidv4();
+        },
+      },
+      sequelize,
+      modelName: "History",
+    }
+  );
   return History;
 };
