@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const secret_key = "abcd1234";
 const { User, Product } = require("../models");
+
 function authentication(req, res, next) {
   const { access_token } = req.headers;
   // console.log(access_token);

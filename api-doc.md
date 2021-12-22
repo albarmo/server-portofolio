@@ -16,6 +16,7 @@
      }
      ```
      > > > Response (201 - Created - UnVerified)
+
   ```json
     {
       "id": <given id by system>,
@@ -24,27 +25,15 @@
       "status": "<user status>"
     }
   ```
+
   > > > Response (400 - Bad Request)
+
   ```json
   {
     "message": "<given error message>"
   }
   ```
-  <!-- - 2. GET /customer/verif
-    >> Request Params
-        - verification_id
-    >> Response (201 - Created - Verified)
-    ```json
-      {
-        "usename": "<status veriied>"
-      }
-    ```
-    >> Response (400 - Bad Request)
-    ```json
-      {
-        "message": "<given error message>"
-      }
-    ``` -->
+
 - 3. POST /customer/login
      > > Request Body
   ```json
