@@ -1,0 +1,34 @@
+{
+  "name": "magin-server",
+  "version": "1.0.0",
+  "description": "Backend for Magin E - Commerence",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albarmo/magin-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albarmo/magin-server/issues"
+  },
+  "homepage": "https://github.com/albarmo/magin-server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "sequelize": "^6.12.1",
+    "sequelize-cli": "^6.3.0",
+    "uuid": "^8.3.2"
+  }
+}
