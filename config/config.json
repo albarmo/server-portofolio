@@ -2,7 +2,7 @@
   "development": {
     "username": "albarms",
     "password": "123456",
-    "database": "magin-server",
+    "database": "dev-magin-server",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
