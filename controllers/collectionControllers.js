@@ -11,6 +11,9 @@ exports.create = (req, res) => {
     return;
   }
 
+  var tes = 1
+  console.log(tes)
+
   const collection = {
     title: req.body.title,
     productId: req.body.productId,

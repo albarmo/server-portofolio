@@ -6,6 +6,8 @@
 
 ### User biasa / customer
 
+asdasd
+
 - 1. POST /customer/signup
      > > Request Header
      > > Request Body
