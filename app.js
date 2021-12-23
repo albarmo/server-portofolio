@@ -19,6 +19,8 @@ App.get("/", (req, res) => {
   return res.status(200).json({ ServerStatus: `Running` });
 });
 
+console.log('blaballasad')
+
 App.listen(port, () => {
   console.log(`This Server running on port ${port}`);
 });
