@@ -234,7 +234,7 @@
     "no-array-constructor": "off",
     "no-bitwise": "off",
     "no-continue": "off",
-    "no-inline-comments": "off",
+    "no-inline-comments": "on",
     "no-lonely-if": "off",
     "no-mixed-operators": "off",
     "no-mixed-spaces-and-tabs": "off",
