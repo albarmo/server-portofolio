@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "description": "Backend for Magin E - Commerence",
   "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "start:dev": "nodemon ./bin/www",
     "test": "jest --detectOpenHandles --verbose false --forceExit --coverage",
@@ -19,23 +30,6 @@
     "url": "https://github.com/albarmo/magin-server/issues"
   },
   "homepage": "https://github.com/albarmo/magin-server#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings=0 --fix"
-    ],
-    "src/**/*.{json,css,md}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
