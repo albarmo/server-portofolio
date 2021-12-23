@@ -32,8 +32,6 @@ exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
 
-  console.log(title);
-
   Collection.findAll({ where: condition })
     .then((data) => {
       res.send(data);
