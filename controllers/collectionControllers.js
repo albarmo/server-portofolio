@@ -11,6 +11,8 @@ exports.create = (req, res) => {
     return;
   }
 
+  asdasdas
+
   const collection = {
     title: req.body.title,
     productId: req.body.productId,
