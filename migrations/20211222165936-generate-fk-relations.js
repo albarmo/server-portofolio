@@ -3,7 +3,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // ================== Wishlists =======================//
-
     await queryInterface.addConstraint("Wishlists", {
       fields: ["userId"],
       type: "foreign key",
@@ -170,12 +169,12 @@ module.exports = {
       {}
     );
     await queryInterface.removeConstraint(
-      "Charts",
+      "Transactions",
       "Fkey_Transactions_to_Charts",
       {}
     );
     await queryInterface.removeConstraint(
-      "Charts",
+      "Transactions",
       "Fkey_Transactions_to_User",
       {}
     );
@@ -206,13 +205,13 @@ module.exports = {
     );
     await queryInterface.removeConstraint(
       "Charts",
-      "Fkey_Charts_to_Shipping",
+      "Fkey_Charts_to_Products",
       {}
     );
 
     await queryInterface.removeConstraint(
       "Categories",
-      "Fkey_Charts_to_Products",
+      "Fkey_Categories_to_Products",
       {}
     );
     await queryInterface.removeConstraint(
