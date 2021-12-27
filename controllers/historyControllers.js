@@ -19,7 +19,7 @@ class HistoryControllers{
                   }
                 ]
               });
-              return res.status(400).json({History});
+              return res.status(400).json({history});
           } catch (error){
               return res.status(400).json({error:error.message});
           }
