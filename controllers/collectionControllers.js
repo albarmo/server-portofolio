@@ -1,67 +1,61 @@
-const db = require('../models');
-const Collection = db.Collection;
-const Op = db.Sequelize.Op;
+const {Collection, Product} = require('../models');
 
-exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.title) {
-    res.status(400).send({
-      message: 'Content can not be empty!',
-    });
-    return;
+class collectionControllers {
+  static async createCollection(req,res){
+    try {
+      const collection = await Collection.create(req.body);
+      return res.status(400).json({
+          collection,
+      });
+      } catch (error) {
+      return res.status(400).json({ error: error.message })
+      }
   }
-
-  var tes = 1
-  console.log(tes)
-
-  const collection = {
-    title: req.body.title,
-    productId: req.body.productId,
-    image: req.body.image ? req.body.image : false,
-  };
-
-  Collection.create(collection)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Col.',
+  static async getAll(req,res){
+    try {
+      const collection = await Collection.findAll({
+          include: [
+              {
+                  model: Product
+              }
+          ]
       });
+      return res.status(400).json({ collection });
+  } catch (error) {
+      return res.status(400).json(error.message);
+  }
+  }
+    static async update(req,res){
+      try {
+        await Collection.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        return res.json({
+            "message": "Collection Updated"
+        });
+    } catch (err) {
+      return res.status(400).json({
+        message: err.message || 'Some error update Collections.',
     });
-};
-
-exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
-
-  Collection.findAll({ where: condition })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving Coll.',
+    }
+  }
+  static async delete(req,res){
+    try {
+      await Collection.destroy(req.body, {
+          where: {
+              id: req.params.id
+          }
       });
+      return res.json({
+          "message": "Collection was deleted"
+      });
+  } catch (err) {
+    return res.status(400).json({
+      message: err.message || 'Some error delete Collections.',
     });
-};
-
-// exports.findOne = (request, res) => {
-
-// };
-
-// exports.update = (req, res) => {
-
-// };
-
-// exports.delete = (req, res) => {
-
-// };
-
-// exports.deleteAll = (req, res) => {
-
-// };
-
-// exports.findAllPublished = (req, res) => {
-
-// };
+    }
+  }
+}
+module.exports= collectionControllers;

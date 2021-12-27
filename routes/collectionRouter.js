@@ -1,10 +1,10 @@
 const collectionRouter = require("express").Router();
-const collection = require("../controllers/collectionControllers");
+const collectionController = require("../controllers/collectionControllers");
   
-    // Create a new Tutorial
-    collectionRouter.post("/", collection.create);
-  
-    // Retrieve all Tutorials
-    collectionRouter.get("/", collection.findAll);
+    
+    collectionRouter.post("/", collectionController.createCollection);   
+    collectionRouter.get("/", collectionController.getAll);
+    collectionRouter.put("/", collectionController.update);
+    collectionRouter.delete("/", collectionController.delete);
 
 module.exports = collectionRouter;
