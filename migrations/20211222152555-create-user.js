@@ -9,12 +9,16 @@ module.exports = {
       },
       fullname: {
         type: Sequelize.STRING,
+         allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
       phone: {
         type: Sequelize.STRING,
+         allowNull: false,
       },
       type: {
         type: Sequelize.STRING,
@@ -30,6 +34,7 @@ module.exports = {
       },
       password: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
