@@ -45,6 +45,7 @@ class UserController {
     const user = await User.findOne({
       where: { email: inputLogin.email },
     });
+
     const userId = user?.dataValues?.id;
     
     try {
