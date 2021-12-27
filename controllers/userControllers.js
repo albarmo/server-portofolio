@@ -1,14 +1,14 @@
-const { User } = require("../models");
-const { comparePassword } = require("../helpers/bcrypt");
-const { generateAccessToken } = require("../helpers/jwt");
+const { User } = require('../models');
+const { comparePassword } = require('../helpers/bcrypt');
+const { generateAccessToken } = require('../helpers/jwt');
 class UserController {
   static async list(req, res) {
     let data = await User.findAll();
     try {
       if (data) {
-        return res.status(200).json({users:data});
+        return res.status(200).json({ users: data });
       } else {
-        return res.status(500).json({ message: "user table empty" });
+        return res.status(500).json({ message: 'user table empty' });
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -19,10 +19,10 @@ class UserController {
     let inputDataRegister = {
       fullname: req.body.fullname,
       email: req.body.email,
-      phone:req.body.phone,
+      phone: req.body.phone,
       type: req.body.type,
       address: req.body.address,
-      region:req.body.region,
+      region: req.body.region,
       gender: req.body.gender,
       password: req.body.password,
     };
@@ -47,17 +47,12 @@ class UserController {
     });
 
     const userId = user?.dataValues?.id;
-    
+
     try {
       if (!user) {
-        return res
-          .status(400)
-          .json({ message: "failed, user not registered" });
-          
-      } else if (
-        !comparePassword (inputLogin.password, user.dataValues.password)
-      ) {
-        return res.status(401).json({ msg: "email or password wrong!" });
+        return res.status(400).json({ message: 'failed, user not registered' });
+      } else if (!comparePassword(inputLogin.password, user.dataValues.password)) {
+        return res.status(401).json({ msg: 'email or password wrong!' });
       } else {
         const accessToken = generateAccessToken({
           email: user.email,
@@ -71,14 +66,14 @@ class UserController {
   }
 
   static async updateUser(req, res) {
-    const {id} = req.params;
+    const { id } = req.params;
     const inputDataUpdate = {
-    fullname: req.body.fullname,
+      fullname: req.body.fullname,
       email: req.body.email,
-      phone:req.body.phone,
+      phone: req.body.phone,
       type: req.body.type,
       address: req.body.address,
-      region:req.body.region,
+      region: req.body.region,
       gender: req.body.gender,
       password: req.body.password,
     };
@@ -103,7 +98,7 @@ class UserController {
           return res.status(200).json({ updateUser });
         }
       } else if (!userDataById) {
-        res.status(404).json({ msg: "user not found!" });
+        res.status(404).json({ msg: 'user not found!' });
       }
     } catch (error) {
       return res.status(500).json({ message: error.message, error });
@@ -111,20 +106,16 @@ class UserController {
   }
 
   static async deleteUser(req, res) {
-    const {id} = req.params;
+    const { id } = req.params;
     try {
       const deleteUser = await User.destroy({
         where: { id: id },
         returning: true,
       });
       if (deleteUser) {
-        return res
-          .status(200)
-          .json({ message: `success delete user with id ${id}` });
+        return res.status(200).json({ message: `success delete user with id ${id}` });
       } else {
-        return res
-          .status(404)
-          .json({ message: `failed, delete user with id ${id} not found` });
+        return res.status(404).json({ message: `failed, delete user with id ${id} not found` });
       }
     } catch (error) {
       return res.status(500).json({ message: error.message });
