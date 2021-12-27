@@ -7,9 +7,9 @@ class collectionControllers {
       return res.status(400).json({
           collection,
       });
-  } catch (error) {
+      } catch (error) {
       return res.status(400).json({ error: error.message })
-  }
+      }
   }
   static async getAll(req,res){
     try {
