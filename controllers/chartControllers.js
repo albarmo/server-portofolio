@@ -48,7 +48,7 @@ class ChartControllers {
         returning: true,
       });
       if (updateChart) {
-        return res.status(201).json({ updateChart });
+        return res.status(200).json({ updateChart });
       }
     } catch (error) {
       return res.status(500).json({ message: error });

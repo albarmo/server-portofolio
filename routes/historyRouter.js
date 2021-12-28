@@ -1,7 +1,7 @@
 const historyRouter = require('express').Router();
 const HistoryController = require('../controllers/historyControllers');
 
-historyRouter.post('/', HistoryController.createHistory);
-historyRouter.get('/', HistoryController.getAll);
+historyRouter.get('/', HistoryController.list);
+historyRouter.post('/', HistoryController.create);
 
 module.exports = historyRouter;

@@ -9,7 +9,7 @@ const wishlistRouter = require('./wishlistRouter');
 const shippingRouter = require('./shippingRouter');
 const transactionRouter = require('./transactionRouter');
 const categoriesRouter = require('./categoriesRouter');
-
+const advertisementRouter = require('./advertisementRouter');
 
 router.use('/user', userRouter);
 router.use('/products', productRouter);
@@ -21,6 +21,6 @@ router.use('/chart', chartRouter);
 router.use('/wishlist', wishlistRouter);
 router.use('/transaction', transactionRouter);
 router.use('/categories', categoriesRouter);
-
+router.use('/advertisement', advertisementRouter);
 
 module.exports = router;

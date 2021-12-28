@@ -1,6 +1,6 @@
-"use strict";
-const { Model } = require("sequelize");
-const { v4: uuidv4 } = require("uuid");
+'use strict';
+const { Model } = require('sequelize');
+const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class Banner extends Model {
     /**
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       sequelize,
-      modelName: "Banner",
+      modelName: 'Banner',
     }
   );
   return Banner;

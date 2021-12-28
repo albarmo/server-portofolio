@@ -1,17 +1,8 @@
 const { Collection, Product } = require('../models');
+const uploader = require('../helpers/uploader');
 
 class collectionControllers {
-  static async createCollection(req, res) {
-    try {
-      const collection = await Collection.create(req.body);
-      return res.status(400).json({
-        collection,
-      });
-    } catch (error) {
-      return res.status(400).json({ error: error.message });
-    }
-  }
-  static async getAll(req, res) {
+  static async list(req, res) {
     try {
       const collection = await Collection.findAll({
         include: [
@@ -25,36 +16,85 @@ class collectionControllers {
       return res.status(400).json(error.message);
     }
   }
-  static async update(req, res) {
+
+  static create(req, res) {
     try {
-      await Collection.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
+      const upload = uploader('COLLECTION_IMAGE').fields([{ name: 'image' }]);
+      upload(req, res, (err) => {
+        if (err) {
+          console.log('Failed to upload collection image', err);
+          return res.status(500).json({ msg: err });
+        }
+        const { image } = req.files;
+        const imagePath = image ? '/' + image[0].filename : null;
+
+        let inputData = {
+          title: req.body.title,
+          productId: req.body.productId,
+          image: imagePath,
+        };
+
+        Collection.create(inputData)
+          .then((data) => {
+            console.log(data);
+            return res.status(201).json({ data });
+          })
+          .catch((error) => {
+            return res.status(500).json({ message: error });
+          });
       });
-      return res.json({
-        message: 'Collection Updated',
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  static update(req, res) {
+    try {
+      const { id } = req.params;
+      const upload = uploader('COLLECTION_IMAGE').fields([{ name: 'image' }]);
+      upload(req, res, (err) => {
+        if (err) {
+          console.log('Failed to upload collection image', err);
+          return res.status(500).json({ msg: err });
+        }
+        const { image } = req.files;
+        const imagePath = image ? '/' + image[0].filename : null;
+
+        let inputDataUpdate = {
+          title: req.body.title,
+          productId: req.body.productId,
+          image: imagePath,
+        };
+        Collection.update(inputDataUpdate, {
+          where: {
+            id: id,
+          },
+          returning: true,
+        })
+          .then((data) => {
+            console.log(data);
+            return res.status(201).json({ data });
+          })
+          .catch((error) => {
+            return res.status(500).json({ message: error });
+          });
       });
-    } catch (err) {
-      return res.status(400).json({
-        message: err.message || 'Some error update Collections.',
-      });
+    } catch (error) {
+      return res.status(500).json({ message: error });
     }
   }
   static async delete(req, res) {
+    const { id } = req.params;
     try {
-      await Collection.destroy(req.body, {
+      const deleteCollection = await Collection.destroy({
         where: {
-          id: req.params.id,
+          id: id,
         },
+        returning: true,
       });
-      return res.json({
-        message: 'Collection was deleted',
-      });
-    } catch (err) {
-      return res.status(400).json({
-        message: err.message || 'Some error delete Collections.',
-      });
+      return res.status(200).json({ deleteCollection });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
     }
   }
 }

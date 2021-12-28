@@ -1,10 +1,9 @@
-const collectionRouter = require("express").Router();
-const collectionController = require("../controllers/collectionControllers");
-  
-    
-    collectionRouter.post("/", collectionController.createCollection);   
-    collectionRouter.get("/", collectionController.getAll);
-    collectionRouter.put("/", collectionController.update);
-    collectionRouter.delete("/", collectionController.delete);
+const collectionRouter = require('express').Router();
+const collectionController = require('../controllers/collectionControllers');
+
+collectionRouter.get('/', collectionController.list);
+collectionRouter.post('/', collectionController.create);
+collectionRouter.put('/:id', collectionController.update);
+collectionRouter.delete('/:id', collectionController.delete);
 
 module.exports = collectionRouter;
