@@ -11,9 +11,9 @@ class collectionControllers {
           },
         ],
       });
-      return res.status(400).json({ collection });
+      return res.status(200).json({ collection });
     } catch (error) {
-      return res.status(400).json(error.message);
+      return res.status(500).json(error.message);
     }
   }
 
