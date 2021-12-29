@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const { comparePassword } = require('../helpers/bcrypt');
+const { comparePassword, hashPassword } = require('../helpers/bcrypt');
 const { generateAccessToken } = require('../helpers/jwt');
 class UserController {
   static async list(req, res) {
@@ -32,7 +32,7 @@ class UserController {
         return res.status(201).json({ data });
       })
       .catch((error) => {
-        return res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: error });
       });
   }
 
@@ -75,7 +75,7 @@ class UserController {
       address: req.body.address,
       region: req.body.region,
       gender: req.body.gender,
-      password: req.body.password,
+      password: hashPassword(req.body.password),
     };
 
     try {
