@@ -17,10 +17,9 @@ class BannerController {
       const upload = uploader('BANNER_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload banner file', err);
           return res.status(500).json({ msg: err });
         }
-        const { file } = req.files;        
+        const { file } = req.files;
         const imagePath = file ? '/' + file[0].filename : null;
 
         let inputData = {
@@ -50,7 +49,6 @@ class BannerController {
       const upload = uploader('BANNER_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload banner image', err);
           return res.status(500).json({ msg: err });
         }
         const { file } = req.files;
@@ -70,8 +68,7 @@ class BannerController {
           returning: true,
         })
           .then((data) => {
-            console.log(data);
-            return res.status(201).json({ data });
+            return res.status(200).json({ data });
           })
           .catch((error) => {
             return res.status(500).json({ message: error });
@@ -84,12 +81,13 @@ class BannerController {
   static async delete(req, res) {
     const { id } = req.params;
     try {
-      const banner = await Banner.destroy(req.body, {
+      const banner = await Banner.destroy({
         where: {
           id: id,
         },
+        returning: true,
       });
-      return res.status(200).json(banner);
+      return res.status(200).json({ banner });
     } catch (error) {
       res.status(400).json({ error: error.message || 'Some error Delete Banners.' });
     }

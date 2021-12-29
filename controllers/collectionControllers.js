@@ -22,7 +22,6 @@ class collectionControllers {
       const upload = uploader('COLLECTION_IMAGE').fields([{ name: 'image' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload collection image', err);
           return res.status(500).json({ msg: err });
         }
         const { image } = req.files;
@@ -36,7 +35,6 @@ class collectionControllers {
 
         Collection.create(inputData)
           .then((data) => {
-            console.log(data);
             return res.status(201).json({ data });
           })
           .catch((error) => {
@@ -54,7 +52,6 @@ class collectionControllers {
       const upload = uploader('COLLECTION_IMAGE').fields([{ name: 'image' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload collection image', err);
           return res.status(500).json({ msg: err });
         }
         const { image } = req.files;
@@ -72,8 +69,7 @@ class collectionControllers {
           returning: true,
         })
           .then((data) => {
-            console.log(data);
-            return res.status(201).json({ data });
+            return res.status(200).json({ data });
           })
           .catch((error) => {
             return res.status(500).json({ message: error });

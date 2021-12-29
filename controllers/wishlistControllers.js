@@ -42,7 +42,7 @@ class WishlistControllers {
         returning: true,
       });
       if (updateWishlist) {
-        return res.status(201).json({ updateWishlist });
+        return res.status(200).json({ updateWishlist });
       }
     } catch (error) {
       return res.status(500).json({ message: error });

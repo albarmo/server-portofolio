@@ -10,8 +10,15 @@ class HistoryControllers {
     }
   }
   static async create(req, res) {
+    const inputData = {
+      userId: req.body.userId,
+      transactionId: req.body.transactionId,
+      date: new Date(),
+      status: req.body.status,
+      paymentDate: req.body.paymentDate,
+    };
     try {
-      const history = await History.create(req.body);
+      const history = await History.create(inputData);
       return res.status(201).json({
         history,
       });

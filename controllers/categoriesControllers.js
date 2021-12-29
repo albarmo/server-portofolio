@@ -42,7 +42,7 @@ class CategorieControllers {
         returning: true,
       });
       if (updateCategorie) {
-        return res.status(201).json({ updateCategorie });
+        return res.status(200).json({ updateCategorie });
       }
     } catch (error) {
       return res.status(500).json({ message: error });

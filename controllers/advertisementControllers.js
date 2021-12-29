@@ -16,7 +16,6 @@ class AdvertisementControllers {
       const upload = uploader('ADS_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload ads image', err);
           return res.status(500).json({ msg: err });
         }
         const { file } = req.files;
@@ -33,11 +32,10 @@ class AdvertisementControllers {
 
         Advertisement.create(inputData)
           .then((data) => {
-            console.log(data);
             return res.status(201).json({ data });
           })
           .catch((error) => {
-            return res.status(500).json({ message: error });
+            return res.status(500).json({ message: error.message });
           });
       });
     } catch (error) {
@@ -51,7 +49,6 @@ class AdvertisementControllers {
       const upload = uploader('ADS_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload ads image', err);
           return res.status(500).json({ msg: err });
         }
         const { file } = req.files;
@@ -72,8 +69,7 @@ class AdvertisementControllers {
           returning: true,
         })
           .then((data) => {
-            console.log(data);
-            return res.status(201).json({ data });
+            return res.status(200).json({ data });
           })
           .catch((error) => {
             return res.status(500).json({ message: error });

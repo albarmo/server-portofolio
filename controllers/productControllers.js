@@ -18,7 +18,6 @@ class ProductController {
       const upload = uploader('PRODUCT_IMAGE').fields([{ name: 'images' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload product image', err);
           return res.status(500).json({ msg: err });
         }
         const { images } = req.files;
@@ -39,7 +38,6 @@ class ProductController {
 
         Product.create(inputData)
           .then((data) => {
-            console.log(data);
             return res.status(201).json({ data });
           })
           .catch((error) => {
@@ -57,7 +55,6 @@ class ProductController {
       const upload = uploader('PRODUCT_IMAGE').fields([{ name: 'images' }]);
       upload(req, res, (err) => {
         if (err) {
-          console.log('Failed to upload product image', err);
           return res.status(500).json({ msg: err });
         }
         const { images } = req.files;
@@ -82,8 +79,7 @@ class ProductController {
           returning: true,
         })
           .then((data) => {
-            console.log(data);
-            return res.status(201).json({ data });
+            return res.status(200).json({ data });
           })
           .catch((error) => {
             return res.status(500).json({ message: error });
