@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Banners", {
+    await queryInterface.createTable('Banners', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -22,6 +22,9 @@ module.exports = {
       file: {
         type: Sequelize.STRING,
       },
+      isActive: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -33,6 +36,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Banners");
+    await queryInterface.dropTable('Banners');
   },
 };

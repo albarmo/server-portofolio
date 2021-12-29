@@ -1,7 +1,7 @@
-"use strict";
-const { Model } = require("sequelize");
-const { v4: uuidv4 } = require("uuid");
-const {hashPassword} = require("../helpers/bcrypt")
+'use strict';
+const { Model } = require('sequelize');
+const { v4: uuidv4 } = require('uuid');
+const { hashPassword } = require('../helpers/bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Chart, {
+        sourceKey: 'id',
+        foreignKey: 'UserId',
+      });
+      User.hasMany(models.Wishlist, {
+        sourceKey: 'id',
+        foreignKey: 'UserId',
+      });
     }
   }
   User.init(
@@ -35,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       sequelize,
-      modelName: "User",
+      modelName: 'User',
     }
   );
   return User;

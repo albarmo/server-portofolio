@@ -29,7 +29,7 @@ class collectionControllers {
 
         let inputData = {
           title: req.body.title,
-          productId: req.body.productId,
+          ProductId: req.body.ProductId,
           image: imagePath,
         };
 
@@ -59,7 +59,7 @@ class collectionControllers {
 
         let inputDataUpdate = {
           title: req.body.title,
-          productId: req.body.productId,
+          ProductId: req.body.ProductId,
           image: imagePath,
         };
         Collection.update(inputDataUpdate, {

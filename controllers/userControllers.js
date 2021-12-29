@@ -46,7 +46,7 @@ class UserController {
       where: { email: inputLogin.email },
     });
 
-    const userId = user?.dataValues?.id;
+    const UserId = user?.dataValues?.id;
 
     try {
       if (!user) {
@@ -58,7 +58,7 @@ class UserController {
           email: user.email,
           password: user.password,
         });
-        return res.status(200).json({ accessToken, userId });
+        return res.status(200).json({ accessToken, UserId });
       }
     } catch (error) {
       return res.status(500).json({ message: error.message });

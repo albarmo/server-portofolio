@@ -1,26 +1,29 @@
-"use strict";
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Charts", {
+    await queryInterface.createTable('Charts', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
       },
-      userId: {
+      UserId: {
         type: Sequelize.UUID,
       },
-      productId: {
-        type: Sequelize.UUID,
-      },
-      date: {
-        type: Sequelize.DATE,
-      },
-      shippingId: {
+      ProductId: {
         type: Sequelize.UUID,
       },
       isDropShipping: {
         type: Sequelize.BOOLEAN,
+      },
+      shippedDate: {
+        type: Sequelize.DATE,
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.STRING,
       },
       receiver: {
         type: Sequelize.STRING,
@@ -36,6 +39,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Charts");
+    await queryInterface.dropTable('Charts');
   },
 };

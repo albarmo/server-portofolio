@@ -11,15 +11,23 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Product.belongsTo(models.Collection, {
+        targetKey: 'id',
+        foreignKey: 'CollectionId',
+      });
+      Product.hasMany(models.Chart, {
         sourceKey: 'id',
-        foreignKey: 'categories',
+        foreignKey: 'ProductId',
+      });
+      Product.hasMany(models.Wishlist, {
+        sourceKey: 'id',
+        foreignKey: 'ProductId',
       });
     }
   }
   Product.init(
     {
       title: DataTypes.STRING,
-      categories: DataTypes.UUID,
+      CollectionId: DataTypes.UUID,
       color: DataTypes.STRING,
       size: DataTypes.STRING,
       description: DataTypes.STRING,
@@ -27,7 +35,6 @@ module.exports = (sequelize, DataTypes) => {
       images: DataTypes.STRING,
       price: DataTypes.INTEGER,
       weight: DataTypes.STRING,
-      quantity: DataTypes.INTEGER,
     },
     {
       hooks: {

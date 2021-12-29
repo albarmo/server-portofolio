@@ -1,6 +1,6 @@
-"use strict";
-const { Model } = require("sequelize");
-const { v4: uuidv4 } = require("uuid");
+'use strict';
+const { Model } = require('sequelize');
+const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class Chart extends Model {
     /**
@@ -10,15 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Chart.belongsTo(models.User, {
+        targetKey: 'id',
+        foreignKey: 'UserId',
+      });
+      Chart.belongsTo(models.Product, {
+        targetKey: 'id',
+        foreignKey: 'ProductId',
+      });
     }
   }
   Chart.init(
     {
-      userId: DataTypes.UUID,
-      productId: DataTypes.UUID,
-      date: DataTypes.DATE,
-      shippingId: DataTypes.UUID,
+      UserId: DataTypes.UUID,
+      ProductId: DataTypes.UUID,
       isDropShipping: DataTypes.BOOLEAN,
+      shippedDate: DataTypes.DATE,
+      quantity: DataTypes.INTEGER,
+      status: DataTypes.STRING,
       receiver: DataTypes.STRING,
     },
     {
@@ -28,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       sequelize,
-      modelName: "Chart",
+      modelName: 'Chart',
     }
   );
   return Chart;

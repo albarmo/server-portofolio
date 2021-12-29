@@ -14,8 +14,8 @@ class WishlistControllers {
   static async create(req, res) {
     try {
       let inputData = {
-        userId: req.body.userId,
-        productId: req.body.productId,
+        UserId: req.body.UserId,
+        ProductId: req.body.ProductId,
         date: new Date(),
       };
       const newWishlist = await Wishlist.create(inputData);
@@ -31,8 +31,8 @@ class WishlistControllers {
     try {
       const { id } = req.params;
       let inputData = {
-        userId: req.body.userId,
-        productId: req.body.productId,
+        UserId: req.body.UserId,
+        ProductId: req.body.ProductId,
         date: new Date(),
       };
       const updateWishlist = await Wishlist.update(inputData, {

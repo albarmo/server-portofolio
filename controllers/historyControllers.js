@@ -11,7 +11,7 @@ class HistoryControllers {
   }
   static async create(req, res) {
     const inputData = {
-      userId: req.body.userId,
+      UserId: req.body.UserId,
       transactionId: req.body.transactionId,
       date: new Date(),
       status: req.body.status,

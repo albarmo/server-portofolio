@@ -1,9 +1,16 @@
-const { Chart } = require('../models');
+const { Chart, Product, Collection } = require('../models');
 
 class ChartControllers {
   static async list(req, res) {
     try {
-      const data = await Chart.findAll();
+      const data = await Chart.findAll({
+        include: {
+          model: Product,
+          include: {
+            model: Collection,
+          },
+        },
+      });
       if (data) {
         return res.status(200).json({ data });
       }
@@ -14,19 +21,18 @@ class ChartControllers {
   static async create(req, res) {
     try {
       let inputData = {
-        userId: req.body.userId,
-        productId: req.body.productId,
-        date: new Date(),
-        shippingId: req.body.shippingId,
+        UserId: req.body.UserId,
+        ProductId: req.body.ProductId,
         isDropShipping: req.body.isDropShipping,
         receiver: req.body.receiver,
+        date: new Date(),
       };
       const newChart = await Chart.create(inputData);
       if (newChart) {
         return res.status(201).json({ newChart });
       }
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res.status(500).json({ message: error });
     }
   }
 
@@ -34,10 +40,9 @@ class ChartControllers {
     try {
       const chartId = req.params.id;
       let inputDataUpdate = {
-        userId: req.body.userId,
-        productId: req.body.productId,
+        UserId: req.body.UserId,
+        ProductId: req.body.ProductId,
         date: new Date(),
-        shippingId: req.body.shippingId,
         isDropShipping: req.body.isDropShipping,
         receiver: req.body.receiver,
       };
