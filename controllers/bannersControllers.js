@@ -20,9 +20,7 @@ class BannerController {
           console.log('Failed to upload banner file', err);
           return res.status(500).json({ msg: err });
         }
-        const { file } = req.files;
-
-        console.log(req.files, 'ini');
+        const { file } = req.files;        
         const imagePath = file ? '/' + file[0].filename : null;
 
         let inputData = {
@@ -91,7 +89,7 @@ class BannerController {
           id: id,
         },
       });
-      return res.status(400).json(banner);
+      return res.status(200).json(banner);
     } catch (error) {
       res.status(400).json({ error: error.message || 'Some error Delete Banners.' });
     }
