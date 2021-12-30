@@ -24,7 +24,6 @@ class AdvertisementControllers {
         let inputData = {
           title: req.body.title,
           target: req.body.target,
-          date: new Date(),
           startDate: req.body.startDate,
           expiredDate: req.body.expiredDate,
           file: imagePath,
@@ -57,7 +56,6 @@ class AdvertisementControllers {
         let inputDataUpdate = {
           title: req.body.title,
           target: req.body.target,
-          date: new Date(),
           startDate: req.body.startDate,
           expiredDate: req.body.expiredDate,
           file: imagePath,

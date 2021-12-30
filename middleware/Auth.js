@@ -1,31 +1,56 @@
-const jwt = require("jsonwebtoken");
-const secret_key = "abcd1234";
-const { User } = require("../models");
+const { verifyToken } = require('../helpers/jwt');
+const { User } = require('../models');
 
-function authentication(req, res, next) {
-  const { access_token } = req.headers;
-  if (access_token) {
-    let decode = jwt.verify(access_token, secret_key);
-    console.log(decode);
-    req.userData = decode;
-    next();
-  } else {
-    next({ name: "Unauthenticated" });
-  }
-}
-
-function authorization(req, res, next) {
-  User.findByPk(req.userData.id)
+const authentification = (req, res, next) => {
+  const decoded = verifyToken(req.headers.access_token);
+  User.findOne({
+    where: {
+      email: decoded.email,
+    },
+  })
     .then((user) => {
-      if (user.role == "admin") {
-        next();
+      if (!user) {
+        return res.status(404).json({ msg: `User not found!` });
       } else {
-        next({ name: "Not Authorized" });
+        req.userData = decoded;
+        next();
       }
     })
     .catch((err) => {
-      next(err);
+      return res.status(500).json({ msg: err.message });
     });
-}
+};
 
-module.exports = { authentication, authorization };
+const authorization = (req, res, next) => {
+  User.findOne({ where: { id: req.userData.id } })
+    .then((data) => {
+      if (!data) {
+        return res.status(404).json({ msg: 'User Not Found' });
+      } else if (data.type !== 'admin') {
+        return res.status(401).json({ msg: 'You do not have access' });
+      } else {
+        next();
+      }
+    })
+    .catch((err) => {
+      return res.status(500).json({ msg: err.message });
+    });
+};
+
+const authorizationCart = (req, res, next) => {
+  Cart.findByPk(+req.params.id)
+    .then((data) => {
+      if (!data) {
+        return res.status(404).json({ msg: 'Data Not Founds' });
+      } else if (data.UserId !== req.userData.id) {
+        return res.status(401).json({ msg: 'You do not have access' });
+      } else {
+        next();
+      }
+    })
+    .catch((err) => {
+      return res.status(500).json({ msg: err.message });
+    });
+};
+
+module.exports = { authentification, authorization, authorizationCart };

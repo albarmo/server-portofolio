@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: 'id',
         foreignKey: 'UserId',
       });
-      History.belongsTo(models.Chart, {
+      History.belongsTo(models.Cart, {
         targetKey: 'id',
         foreignKey: 'CartId',
       });

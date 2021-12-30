@@ -1,14 +1,11 @@
-const { Chart, Product, Collection } = require('../models');
+const { Cart, Product, Collection } = require('../models');
 
-class ChartControllers {
+class CartControllers {
   static async list(req, res) {
     try {
-      const data = await Chart.findAll({
+      const data = await Cart.findAll({
         include: {
           model: Product,
-          include: {
-            model: Collection,
-          },
         },
       });
       if (data) {
@@ -27,9 +24,9 @@ class ChartControllers {
         receiver: req.body.receiver,
         date: new Date(),
       };
-      const newChart = await Chart.create(inputData);
-      if (newChart) {
-        return res.status(201).json({ newChart });
+      const newCart = await Cart.create(inputData);
+      if (newCart) {
+        return res.status(201).json({ newCart });
       }
     } catch (error) {
       return res.status(500).json({ message: error });
@@ -38,7 +35,7 @@ class ChartControllers {
 
   static async update(req, res) {
     try {
-      const chartId = req.params.id;
+      const CartId = req.params.id;
       let inputDataUpdate = {
         UserId: req.body.UserId,
         ProductId: req.body.ProductId,
@@ -46,14 +43,14 @@ class ChartControllers {
         isDropShipping: req.body.isDropShipping,
         receiver: req.body.receiver,
       };
-      const updateChart = await Chart.update(inputDataUpdate, {
+      const updateCart = await Cart.update(inputDataUpdate, {
         where: {
-          id: chartId,
+          id: CartId,
         },
         returning: true,
       });
-      if (updateChart) {
-        return res.status(200).json({ updateChart });
+      if (updateCart) {
+        return res.status(200).json({ updateCart });
       }
     } catch (error) {
       return res.status(500).json({ message: error });
@@ -61,20 +58,20 @@ class ChartControllers {
   }
 
   static async delete(req, res) {
-    const chartId = req.params.id;
+    const CartId = req.params.id;
     try {
-      const isExist = await Chart.findOne({ where: { id: chartId } });
+      const isExist = await Cart.findOne({ where: { id: CartId } });
       if (!isExist) {
-        return res.status(404).json({ message: 'chart data not found!' });
+        return res.status(404).json({ message: 'Cart data not found!' });
       } else {
-        const deleteCharts = await Chart.destroy({
+        const deleteCarts = await Cart.destroy({
           where: {
-            id: chartId,
+            id: CartId,
           },
           returning: true,
         });
-        if (deleteCharts) {
-          return res.status(200).json({ status: `sucess deleted chart ${chartId}` });
+        if (deleteCarts) {
+          return res.status(200).json({ status: `sucess deleted Cart ${CartId}` });
         }
       }
     } catch (error) {
@@ -83,4 +80,4 @@ class ChartControllers {
   }
 }
 
-module.exports = ChartControllers;
+module.exports = CartControllers;

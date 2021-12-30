@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: 'id',
         foreignKey: 'CollectionId',
       });
-      Product.hasMany(models.Chart, {
+      Product.hasMany(models.Cart, {
         sourceKey: 'id',
         foreignKey: 'ProductId',
       });

@@ -1,4 +1,5 @@
 const { Product, Collection } = require('../models');
+const { Op } = require('sequelize');
 const uploader = require('../helpers/uploader');
 
 class ProductController {
@@ -9,6 +10,12 @@ class ProductController {
           model: Collection,
           attributes: ['title'],
         },
+        where: {
+          stock: {
+            [Op.gt]: 0,
+          },
+        },
+        order: [['title', 'ASC']],
       });
       if (data) {
         return res.status(200).json({ data });

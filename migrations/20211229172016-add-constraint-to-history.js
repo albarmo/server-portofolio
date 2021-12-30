@@ -16,7 +16,7 @@ module.exports = {
       type: 'foreign key',
       name: 'Fkey_Carts_Histories',
       references: {
-        table: 'Charts',
+        table: 'Carts',
         field: 'id',
       },
     });

@@ -1,9 +1,11 @@
-const { Wishlist } = require('../models');
+const { Wishlist, Product } = require('../models');
 
 class WishlistControllers {
   static async list(req, res) {
     try {
-      const data = await Wishlist.findAll();
+      const data = await Wishlist.findAll({
+        include: [Product],
+      });
       if (data) {
         return res.status(200).json({ data });
       }

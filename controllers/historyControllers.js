@@ -1,9 +1,19 @@
-const { User, Transaction, History } = require('../models');
+const { User, Cart, Product, History } = require('../models');
 
 class HistoryControllers {
   static async list(req, res) {
     try {
-      const history = await History.findAll({});
+      const history = await History.findAll({
+        include: [
+          {
+            model: Cart,
+            include: {
+              model: Product,
+            },
+          },
+          { model: User },
+        ],
+      });
       return res.status(200).json({ history });
     } catch (error) {
       return res.status(500).json({ error: error.message });
@@ -12,7 +22,7 @@ class HistoryControllers {
   static async create(req, res) {
     const inputData = {
       UserId: req.body.UserId,
-      transactionId: req.body.transactionId,
+      CartId: req.body.CartId,
       date: new Date(),
       status: req.body.status,
       paymentDate: req.body.paymentDate,
