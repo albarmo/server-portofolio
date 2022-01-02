@@ -1,9 +1,11 @@
-const { Categorie } = require('../models');
+const { Categorie, Collection } = require('../models');
 
 class CategorieControllers {
   static async list(req, res) {
     try {
-      const data = await Categorie.findAll();
+      const data = await Categorie.findAll({
+        include: { model: Collection },
+      });
       if (data) {
         return res.status(200).json({ data });
       }
@@ -14,8 +16,8 @@ class CategorieControllers {
   static async create(req, res) {
     try {
       let inputData = {
-        productId: req.body.productId,
-        collectionId: req.body.collectionId,
+        ProductId: req.body.ProductId,
+        CategoryId: req.body.CategoryId,
         title: req.body.title,
       };
       const newCategorie = await Categorie.create(inputData);
@@ -31,8 +33,8 @@ class CategorieControllers {
     try {
       const categorieId = req.params.id;
       let inputDataUpdate = {
-        productId: req.body.productId,
-        collectionId: req.body.collectionId,
+        ProductId: req.body.ProductId,
+        CategoryId: req.body.CategoryId,
         title: req.body.title,
       };
       const updateCategorie = await Categorie.update(inputDataUpdate, {

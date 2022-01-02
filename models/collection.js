@@ -10,16 +10,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Collection.belongsTo(models.Categorie, {
+        targetKey: 'id',
+        foreignKey: 'CategoryId',
+      });
       Collection.hasMany(models.Product, {
         sourceKey: 'id',
-        foreignKey: 'categories',
+        foreignKey: 'CollectionId',
       });
     }
   }
   Collection.init(
     {
       title: DataTypes.STRING,
-      productId: DataTypes.UUID,
+      ProductId: DataTypes.UUID,
+      CategoryId: DataTypes.UUID,
       image: DataTypes.STRING,
     },
     {

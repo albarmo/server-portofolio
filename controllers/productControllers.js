@@ -1,10 +1,22 @@
-const { Product } = require('../models');
+const { Product, Collection } = require('../models');
+const { Op } = require('sequelize');
 const uploader = require('../helpers/uploader');
 
 class ProductController {
   static async list(req, res) {
     try {
-      const data = await Product.findAll();
+      const data = await Product.findAll({
+        include: {
+          model: Collection,
+          attributes: ['title'],
+        },
+        where: {
+          stock: {
+            [Op.gt]: 0,
+          },
+        },
+        order: [['title', 'ASC']],
+      });
       if (data) {
         return res.status(200).json({ data });
       }
@@ -25,7 +37,6 @@ class ProductController {
 
         let inputData = {
           title: req.body.title,
-          categories: req.body.categories,
           color: req.body.color,
           size: req.body.size,
           description: req.body.description,
@@ -33,7 +44,7 @@ class ProductController {
           images: imagePath,
           price: req.body.price,
           weight: req.body.weight,
-          quantity: req.body.quantity,
+          CollectionId: req.body.CollectionId,
         };
 
         Product.create(inputData)
@@ -62,7 +73,6 @@ class ProductController {
 
         let inputDataUpdate = {
           title: req.body.title,
-          categories: req.body.categories,
           color: req.body.color,
           size: req.body.size,
           description: req.body.description,
@@ -70,7 +80,7 @@ class ProductController {
           images: imagePath,
           price: req.body.price,
           weight: req.body.weight,
-          quantity: req.body.quantity,
+          CollectionId: req.body.CollectionId,
         };
         Product.update(inputDataUpdate, {
           where: {

@@ -2,7 +2,7 @@
 const { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
-  class Product extends Model {
+  class Cart extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -10,31 +10,29 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Product.belongsTo(models.Collection, {
+      Cart.belongsTo(models.User, {
         targetKey: 'id',
-        foreignKey: 'CollectionId',
+        foreignKey: 'UserId',
       });
-      Product.hasMany(models.Cart, {
-        sourceKey: 'id',
+      Cart.belongsTo(models.Product, {
+        targetKey: 'id',
         foreignKey: 'ProductId',
       });
-      Product.hasMany(models.Wishlist, {
-        sourceKey: 'id',
-        foreignKey: 'ProductId',
+      Cart.belongsTo(models.History, {
+        targetKey: 'id',
+        foreignKey: 'UserId',
       });
     }
   }
-  Product.init(
+  Cart.init(
     {
-      title: DataTypes.STRING,
-      CollectionId: DataTypes.UUID,
-      color: DataTypes.STRING,
-      size: DataTypes.STRING,
-      description: DataTypes.STRING,
-      stock: DataTypes.INTEGER,
-      images: DataTypes.STRING,
-      price: DataTypes.INTEGER,
-      weight: DataTypes.STRING,
+      UserId: DataTypes.UUID,
+      ProductId: DataTypes.UUID,
+      isDropShipping: DataTypes.BOOLEAN,
+      shippedDate: DataTypes.DATE,
+      quantity: DataTypes.INTEGER,
+      status: DataTypes.STRING,
+      receiver: DataTypes.STRING,
     },
     {
       hooks: {
@@ -43,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       sequelize,
-      modelName: 'Product',
+      modelName: 'Cart',
     }
   );
-  return Product;
+  return Cart;
 };

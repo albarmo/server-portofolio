@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Advertisements", {
+    await queryInterface.createTable('Advertisements', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -12,9 +12,6 @@ module.exports = {
       },
       target: {
         type: Sequelize.STRING,
-      },
-      date: {
-        type: Sequelize.DATE,
       },
       expiredDate: {
         type: Sequelize.DATE,
@@ -36,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Advertisements");
+    await queryInterface.dropTable('Advertisements');
   },
 };
