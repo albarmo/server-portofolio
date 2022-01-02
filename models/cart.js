@@ -3,13 +3,7 @@ const { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
       Cart.belongsTo(models.User, {
         targetKey: 'id',
         foreignKey: 'UserId',
@@ -28,11 +22,60 @@ module.exports = (sequelize, DataTypes) => {
     {
       UserId: DataTypes.UUID,
       ProductId: DataTypes.UUID,
-      isDropShipping: DataTypes.BOOLEAN,
-      shippedDate: DataTypes.DATE,
-      quantity: DataTypes.INTEGER,
-      status: DataTypes.STRING,
-      receiver: DataTypes.STRING,
+      isDropShipping: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart status isDropShipping cannot be empty',
+          },
+        },
+      },
+      shippedDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart shipped date cannot be empty',
+          },
+        },
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart quantity cannot be empty',
+          },
+          min: {
+            args: [0],
+            msg: 'Quantity cannot be less than zero',
+          },
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart status cannot be empty',
+          },
+        },
+      },
+      receiver: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart reciver cannot be empty',
+          },
+        },
+      },
     },
     {
       hooks: {
