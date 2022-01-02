@@ -3,13 +3,7 @@ const { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class History extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
       History.belongsTo(models.User, {
         targetKey: 'id',
         foreignKey: 'UserId',
@@ -24,9 +18,36 @@ module.exports = (sequelize, DataTypes) => {
     {
       UserId: DataTypes.UUID,
       CartId: DataTypes.UUID,
-      date: DataTypes.DATE,
-      status: DataTypes.STRING,
-      paymentDate: DataTypes.DATE,
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'History checkout date cannot be empty',
+          },
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'History status  cannot be empty',
+          },
+        },
+      },
+      paymentDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'History payment date cannot be empty',
+          },
+        },
+      },
     },
     {
       hooks: {
