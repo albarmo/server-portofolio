@@ -38,7 +38,7 @@ function errorHandler(err, req, res, next) {
 
     default:
       code = 500;
-      msg = 'Internal Server Error';
+      msg = err.message;
       break;
   }
 

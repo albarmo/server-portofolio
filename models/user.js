@@ -44,6 +44,10 @@ module.exports = (sequelize, DataTypes) => {
       phone: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          argv: true,
+          msg: 'phone number is already in use',
+        },
         validate: {
           notEmpty: {
             args: true,
@@ -95,8 +99,8 @@ module.exports = (sequelize, DataTypes) => {
             msg: 'Password cannot be empty',
           },
           len: {
-            args: [6, 32],
-            msg: 'Minimum length of password is 6',
+            args: [5],
+            msg: 'Minimum length of password is 5',
           },
         },
       },

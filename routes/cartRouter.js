@@ -1,13 +1,15 @@
 const cartRouter = require('express').Router();
-const cartController = require('../controllers/cartControllers');
-const { authentification, authorizationCart } = require('../middleware/Auth');
+const CartController = require('../controllers/CartControllers');
+const { authentification, authorization } = require('../middleware/Auth');
 
 cartRouter.use(authentification);
-cartRouter.get('/', cartController.list);
+cartRouter.get('/', CartController.list);
+cartRouter.post('/', CartController.create);
+cartRouter.put('/:id', CartController.update);
+cartRouter.delete('/:id', CartController.delete);
+cartRouter.get('/checkout', CartController.checkout);
+cartRouter.get('/history/:status', CartController.getCartHistoryByStatus);
 
-cartRouter.use(authorizationCart);
-cartRouter.post('/', cartController.create);
-cartRouter.put('/:id', cartController.update);
-cartRouter.delete('/:id', cartController.delete);
-
+cartRouter.use(authorization);
+cartRouter.get('/all', CartController.allChart);
 module.exports = cartRouter;

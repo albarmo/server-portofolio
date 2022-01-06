@@ -9,6 +9,7 @@ module.exports = {
       },
       UserId: {
         type: Sequelize.UUID,
+        allowNull: false,
       },
       ProductId: {
         type: Sequelize.UUID,

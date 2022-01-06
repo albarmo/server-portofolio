@@ -9,15 +9,19 @@ module.exports = {
       },
       UserId: {
         type: Sequelize.UUID,
+        allowNull: false,
       },
       CartId: {
         type: Sequelize.UUID,
+        allowNull: false,
       },
       date: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       status: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       paymentDate: {
         type: Sequelize.DATE,

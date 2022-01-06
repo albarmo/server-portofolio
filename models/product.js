@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       title: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          argv: true,
+          msg: 'Product name must unique',
+        },
         validate: {
           notEmpty: {
             args: true,

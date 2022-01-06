@@ -15,6 +15,7 @@ module.exports = {
       },
       isDropShipping: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       shippedDate: {
         type: Sequelize.DATE,
@@ -24,9 +25,11 @@ module.exports = {
       },
       status: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       receiver: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

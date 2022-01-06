@@ -2,22 +2,22 @@ const { Banner } = require('../models');
 const uploader = require('../helpers/uploader');
 
 class BannerController {
-  static async list(req, res) {
+  static async list(req, res, next) {
     try {
       const data = await Banner.findAll();
       if (data) {
         return res.status(200).json({ data });
       }
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
-  static create(req, res) {
+  static create(req, res, next) {
     try {
       const upload = uploader('BANNER_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
         if (err) {
-          return res.status(500).json({ msg: err });
+          next(error);
         }
         const { file } = req.files;
         const imagePath = file ? '/' + file[0].filename : null;
@@ -28,6 +28,7 @@ class BannerController {
           target: req.body.target,
           date: new Date(),
           file: imagePath,
+          isActive: true,
         };
 
         Banner.create(inputData)
@@ -35,15 +36,15 @@ class BannerController {
             return res.status(201).json({ data });
           })
           .catch((error) => {
-            return res.status(500).json({ message: error });
+            next(error);
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 
-  static update(req, res) {
+  static update(req, res, next) {
     try {
       const { id } = req.params;
       const upload = uploader('BANNER_IMAGE').fields([{ name: 'file' }]);
@@ -60,6 +61,7 @@ class BannerController {
           target: req.body.target,
           date: new Date(),
           file: imagePath,
+          isActive: req.body.isActive,
         };
         Banner.update(inputDataUpdate, {
           where: {
@@ -71,14 +73,14 @@ class BannerController {
             return res.status(200).json({ data });
           })
           .catch((error) => {
-            return res.status(500).json({ message: error });
+            next(error);
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
-  static async delete(req, res) {
+  static async delete(req, res, next) {
     const { id } = req.params;
     try {
       const banner = await Banner.destroy({
@@ -89,7 +91,7 @@ class BannerController {
       });
       return res.status(200).json({ banner });
     } catch (error) {
-      res.status(400).json({ error: error.message || 'Some error Delete Banners.' });
+      next(error);
     }
   }
 }

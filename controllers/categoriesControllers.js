@@ -1,40 +1,50 @@
-const { Categorie, Collection } = require('../models');
+const { Categorie, Collection, Product } = require('../models');
+const { Op } = require('sequelize');
 
 class CategorieControllers {
-  static async list(req, res) {
+  static async list(req, res, next) {
     try {
       const data = await Categorie.findAll({
-        include: { model: Collection },
+        include: {
+          model: Collection,
+          attributes: ['id', 'title'],
+          include: {
+            model: Product,
+            where: {
+              stock: {
+                [Op.gt]: 0,
+              },
+            },
+            order: [['title', 'ASC']],
+          },
+        },
       });
       if (data) {
         return res.status(200).json({ data });
       }
     } catch (error) {
-      return res.status(500).json({ message: error.message });
-    }
-  }
-  static async create(req, res) {
-    try {
-      let inputData = {
-        ProductId: req.body.ProductId,
-        CategoryId: req.body.CategoryId,
-        title: req.body.title,
-      };
-      const newCategorie = await Categorie.create(inputData);
-      if (newCategorie) {
-        return res.status(201).json({ newCategorie });
-      }
-    } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 
-  static async update(req, res) {
+  static async create(req, res, next) {
+    try {
+      let inputData = {
+        title: req.body.title,
+      };
+      const category = await Categorie.create(inputData);
+      if (category) {
+        return res.status(201).json({ category });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async update(req, res, next) {
     try {
       const categorieId = req.params.id;
       let inputDataUpdate = {
-        ProductId: req.body.ProductId,
-        CategoryId: req.body.CategoryId,
         title: req.body.title,
       };
       const updateCategorie = await Categorie.update(inputDataUpdate, {
@@ -47,11 +57,11 @@ class CategorieControllers {
         return res.status(200).json({ updateCategorie });
       }
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
 
-  static async delete(req, res) {
+  static async delete(req, res, next) {
     const categorieId = req.params.id;
     try {
       const isExist = await Categorie.findOne({ where: { id: categorieId } });
@@ -69,7 +79,7 @@ class CategorieControllers {
         }
       }
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
 }

@@ -1,31 +1,36 @@
-const { Product, Collection } = require('../models');
+const { Product, Collection, Categorie } = require('../models');
 const { Op } = require('sequelize');
 const uploader = require('../helpers/uploader');
 
 class ProductController {
-  static async list(req, res) {
+  static async list(req, res, next) {
     try {
       const data = await Product.findAll({
         include: {
           model: Collection,
-          attributes: ['title'],
+          attributes: ['id', 'title'],
+          include: {
+            model: Categorie,
+            attributes: ['id', 'title'],
+          },
         },
         where: {
           stock: {
             [Op.gt]: 0,
           },
         },
+
         order: [['title', 'ASC']],
       });
       if (data) {
         return res.status(200).json({ data });
       }
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 
-  static create(req, res) {
+  static create(req, res, next) {
     try {
       const upload = uploader('PRODUCT_IMAGE').fields([{ name: 'images' }]);
       upload(req, res, (err) => {
@@ -56,11 +61,11 @@ class ProductController {
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 
-  static update(req, res) {
+  static update(req, res, next) {
     try {
       const idProduct = req.params.id;
       const upload = uploader('PRODUCT_IMAGE').fields([{ name: 'images' }]);
@@ -96,11 +101,11 @@ class ProductController {
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
 
-  static async delete(req, res) {
+  static async delete(req, res, next) {
     const idProduct = req.params.id;
     const product = await Product.findOne({ where: { id: idProduct } });
     try {
@@ -118,7 +123,7 @@ class ProductController {
         }
       }
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
 }

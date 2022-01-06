@@ -1,11 +1,13 @@
 const bannerRouter = require('express').Router();
-const bannerController = require('../controllers/bannersControllers');
-const { authorization } = require('../middleware/Auth');
+const BannerController = require('../controllers/bannersControllers');
+const { authorization, authentification } = require('../middleware/Auth');
 
-bannerRouter.get('/', bannerController.list);
+bannerRouter.get('/', BannerController.list);
+
+bannerRouter.use(authentification);
 bannerRouter.use(authorization);
-bannerRouter.post('/', bannerController.create);
-bannerRouter.put('/:id', bannerController.update);
-bannerRouter.delete('/:id', bannerController.delete);
+bannerRouter.post('/', BannerController.create);
+bannerRouter.put('/:id', BannerController.update);
+bannerRouter.delete('/:id', BannerController.delete);
 
 module.exports = bannerRouter;

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const generateAccessToken = (payload) => {
-  return (accessToken = jwt.sign(payload, '146155', { expiresIn: 120 * 120 }));
+  return (accessToken = jwt.sign(payload, '146155', { expiresIn: '24h' }));
 };
 
 const verifyToken = (accessToken) => {

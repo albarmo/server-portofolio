@@ -2,16 +2,16 @@ const { Advertisement } = require('../models');
 const uploader = require('../helpers/uploader');
 
 class AdvertisementControllers {
-  static async list(req, res) {
+  static async list(req, res, next) {
     try {
       const advertisement = await Advertisement.findAll();
       return res.status(200).json({ advertisement });
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      next(error);
     }
   }
 
-  static create(req, res) {
+  static create(req, res, next) {
     try {
       const upload = uploader('ADS_IMAGE').fields([{ name: 'file' }]);
       upload(req, res, (err) => {
@@ -38,11 +38,11 @@ class AdvertisementControllers {
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 
-  static update(req, res) {
+  static update(req, res, next) {
     try {
       const { id } = req.params;
       const upload = uploader('ADS_IMAGE').fields([{ name: 'file' }]);
@@ -70,15 +70,15 @@ class AdvertisementControllers {
             return res.status(200).json({ data });
           })
           .catch((error) => {
-            return res.status(500).json({ message: error });
+            next(error);
           });
       });
     } catch (error) {
-      return res.status(500).json({ message: error });
+      next(error);
     }
   }
 
-  static async delete(req, res) {
+  static async delete(req, res, next) {
     const { id } = req.params;
     try {
       const advertisement = Advertisement.findOne({
@@ -98,7 +98,7 @@ class AdvertisementControllers {
         return res.status(200).json({ deleteAdvertisement });
       }
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      next(error);
     }
   }
 }

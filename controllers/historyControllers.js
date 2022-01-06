@@ -1,7 +1,7 @@
 const { User, Cart, Product, History } = require('../models');
 
 class HistoryControllers {
-  static async list(req, res) {
+  static async list(req, res, next) {
     try {
       const history = await History.findAll({
         include: [
@@ -16,10 +16,10 @@ class HistoryControllers {
       });
       return res.status(200).json({ history });
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      next(error);
     }
   }
-  static async create(req, res) {
+  static async create(req, res, next) {
     const inputData = {
       UserId: req.body.UserId,
       CartId: req.body.CartId,
@@ -33,7 +33,7 @@ class HistoryControllers {
         history,
       });
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      next(error);
     }
   }
 }

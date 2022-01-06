@@ -14,7 +14,7 @@ router.use('/products', productRouter);
 router.use('/collections', collectionRouter);
 router.use('/banners', bannerRouter);
 router.use('/history', historyRouter);
-router.use('/carts', cartRouter);
+router.use('/cart', cartRouter);
 router.use('/wishlist', wishlistRouter);
 router.use('/categories', categoriesRouter);
 router.use('/advertisement', advertisementRouter);

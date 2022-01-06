@@ -9,21 +9,27 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       description: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       target: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       date: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       file: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       isActive: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

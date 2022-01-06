@@ -9,18 +9,24 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
       target: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       expiredDate: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       startDate: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       file: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

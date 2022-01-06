@@ -81,6 +81,7 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeCreate(instance) {
           instance.id = uuidv4();
+          instance.status = 'unpaid';
         },
       },
       sequelize,
