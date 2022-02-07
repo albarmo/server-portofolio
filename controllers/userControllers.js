@@ -77,7 +77,7 @@ class UserController {
       address: req.body.address,
       region: req.body.region,
       gender: req.body.gender,
-      password: hashPassword(req.body.password),
+      password: req.body.password,
     };
 
     try {
@@ -94,6 +94,7 @@ class UserController {
           where: {
             id: id,
           },
+          individualHooks: true,
           returning: true,
         });
         if (updateUser) {
