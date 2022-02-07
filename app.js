@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const App = express();
 const cors = require('cors');
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 8080;
 const logger = require('morgan');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
