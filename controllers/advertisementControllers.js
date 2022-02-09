@@ -86,7 +86,7 @@ class AdvertisementControllers {
           id: id,
         },
       });
-      if (advertisement) {
+      if (!advertisement) {
         return res.status(404).json({ message: 'Advertisment not found!' });
       } else {
         const deleteAdvertisement = await Advertisement.destroy({
