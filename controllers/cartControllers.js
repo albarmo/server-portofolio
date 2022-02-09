@@ -91,16 +91,6 @@ class CartControllers {
     const UserId = req.userData.id;
     const requestQuantity = req.body.quantity;
 
-    let inputDataUpdate = {
-      UserId: UserId,
-      ProductId: ProductId,
-      isDropShipping: req.body.isDropShipping,
-      receiver: req.body.receiver,
-      shippedDate: req.body.shippedDate,
-      quantity: req.body.quantity,
-      status: req.body.status,
-    };
-
     try {
       const cart = await Cart.findOne({
         where: {
@@ -146,28 +136,41 @@ class CartControllers {
   static async delete(req, res, next) {
     const UserId = req.userData.id;
     const CartId = req.params.id;
-    const ProductId = req.params.productId;
+    const t = await sequelize.transaction();
 
     try {
-      const isExist = await Cart.findOne({
-        where: {
-          UserId,
-          ProductId,
-        },
-      });
-
-      if (!isExist) {
-        return res.status(404).json({ message: 'Cart data not found!' });
-      } else {
-        const deleteCarts = await Cart.destroy({
+      const cart = await Cart.findAll(
+        {
           where: {
-            id: CartId,
+            UserId,
+            status: 'waiting-payment',
           },
-          returning: true,
-        });
-        if (deleteCarts) {
-          return res.status(200).json({ status: `sucess deleted Cart ${CartId}` });
+        },
+        { transaction: t }
+      );
+
+      if (!cart?.lenght) {
+        try {
+          for (const item of cart) {
+            const product = await Product.findByPk(item.ProductId);
+            let revertStock = product.stock + item.quantity;
+
+            console.log(revertStock, '....revertStock....');
+            await product.update({ stock: revertStock });
+            await item.update({ status: 'cannceled' });
+          }
+          t.afterCommit(() => {
+            return res.status(200).json({ status: `sucess deleted Cart ${CartId}` });
+          });
+        } catch (error) {
+          console.log(error, '====error revert====');
+          await t.rollback();
+          return res.status(500).json({ status: `Error while revert cart` });
         }
+
+        await t.commit();
+      } else {
+        return res.status(404).json({ status: `Cart not found` });
       }
     } catch (error) {
       next(error);
