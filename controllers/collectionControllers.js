@@ -4,14 +4,14 @@ const uploader = require('../helpers/uploader');
 class collectionControllers {
   static async list(req, res, next) {
     try {
-      const collection = await Collection.findAll({
+      const data = await Collection.findAll({
         include: [
           {
             model: Product,
           },
         ],
       });
-      return res.status(200).json({ collection });
+      return res.status(200).json(data);
     } catch (error) {
       next(error);
     }
