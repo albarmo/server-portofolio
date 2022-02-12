@@ -11,6 +11,58 @@ class ProductController {
           attributes: ['id', 'title'],
           include: {
             model: Categorie,
+          },
+        },
+        where: {
+          stock: {
+            [Op.gt]: 0,
+          },
+        },
+
+        order: [['title', 'ASC']],
+      });
+      if (data) {
+        return res.status(200).json(data);
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async detail(req, res, next) {
+    const { id } = req.params;
+    try {
+      const data = await Product.findOne({
+        where: {
+          id: id,
+        },
+        include: {
+          model: Collection,
+          include: {
+            model: Categorie,
+          },
+        },
+      });
+      if (data) {
+        return res.status(200).json(data);
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async filterbyCategory(req, res, next) {
+    const { id } = req.params;
+    try {
+      const data = await Product.findAll({
+        include: {
+          model: Collection,
+          where: {
+            CategoryId: id,
+          },
+          attributes: ['id', 'title'],
+          include: {
+            model: Categorie,
             attributes: ['id', 'title'],
           },
         },
@@ -23,7 +75,32 @@ class ProductController {
         order: [['title', 'ASC']],
       });
       if (data) {
-        return res.status(200).json({ data });
+        return res.status(200).json(data);
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async filterbyCollections(req, res, next) {
+    const { id } = req.params;
+    try {
+      const data = await Product.findAll({
+        include: {
+          model: Collection,
+          attributes: ['id', 'title'],
+        },
+        where: {
+          CollectionId: id,
+          stock: {
+            [Op.gt]: 0,
+          },
+        },
+
+        order: [['title', 'ASC']],
+      });
+      if (data) {
+        return res.status(200).json(data);
       }
     } catch (error) {
       next(error);

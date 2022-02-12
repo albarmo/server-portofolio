@@ -155,7 +155,6 @@ class CartControllers {
             const product = await Product.findByPk(item.ProductId);
             let revertStock = product.stock + item.quantity;
 
-            console.log(revertStock, '....revertStock....');
             await product.update({ stock: revertStock });
             await item.update({ status: 'cannceled' });
           }
@@ -163,7 +162,6 @@ class CartControllers {
             return res.status(200).json({ status: `sucess deleted Cart ${CartId}` });
           });
         } catch (error) {
-          console.log(error, '====error revert====');
           await t.rollback();
           return res.status(500).json({ status: `Error while revert cart` });
         }
