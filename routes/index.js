@@ -8,6 +8,7 @@ const cartRouter = require('./cartRouter');
 const wishlistRouter = require('./wishlistRouter');
 const categoriesRouter = require('./categoriesRouter');
 const advertisementRouter = require('./advertisementRouter');
+const storageRouter = require('./storageRouter');
 
 router.use('/user', userRouter);
 router.use('/products', productRouter);
@@ -18,5 +19,6 @@ router.use('/cart', cartRouter);
 router.use('/wishlist', wishlistRouter);
 router.use('/categories', categoriesRouter);
 router.use('/advertisement', advertisementRouter);
+router.use('/storage', storageRouter);
 
 module.exports = router;

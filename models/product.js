@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
         sourceKey: 'id',
         foreignKey: 'ProductId',
       });
+
+      Product.belongsToMany(models.Storage, {
+        as: 'StorageForProduct',
+        through: models.Bucket,
+        foreignKey: 'SourceId',
+      });
     }
   }
   Product.init(

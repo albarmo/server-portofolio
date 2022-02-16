@@ -1,4 +1,4 @@
-const { Product, Collection, Categorie } = require('../models');
+const { Product, Collection, Categorie, Bucket, Storage } = require('../models');
 const { Op } = require('sequelize');
 const uploader = require('../helpers/uploader');
 
@@ -13,6 +13,7 @@ class ProductController {
             model: Categorie,
           },
         },
+        include: { model: Storage, as: 'StorageForProduct', attributes: ['id', 'file', 'type'] },
         where: {
           stock: {
             [Op.gt]: 0,
@@ -21,6 +22,17 @@ class ProductController {
 
         order: [['title', 'ASC']],
       });
+      if (data) {
+        return res.status(200).json(data);
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async listWithStorage(req, res, next) {
+    try {
+      const data = await Product.findAll({ include: { model: Storage, as: 'StorageForProduct' } });
       if (data) {
         return res.status(200).json(data);
       }
@@ -42,6 +54,7 @@ class ProductController {
             model: Categorie,
           },
         },
+        include: { model: Storage, as: 'StorageForProduct' },
       });
       if (data) {
         return res.status(200).json(data);
@@ -66,6 +79,7 @@ class ProductController {
             attributes: ['id', 'title'],
           },
         },
+        include: { model: Storage, as: 'StorageForProduct', attributes: ['id', 'file', 'type'] },
         where: {
           stock: {
             [Op.gt]: 0,
@@ -90,6 +104,7 @@ class ProductController {
           model: Collection,
           attributes: ['id', 'title'],
         },
+        include: { model: Storage, as: 'StorageForProduct', attributes: ['id', 'file', 'type'] },
         where: {
           CollectionId: id,
           stock: {
