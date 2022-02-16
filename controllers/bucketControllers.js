@@ -1,10 +1,11 @@
 const { Bucket } = require('../models');
-const { v4: uuidv4 } = require('uuid');
 
 class BucketController {
   static async list(req, res, next) {
     try {
-      const data = await Bucket.findAll();
+      const data = await Bucket.findAll({
+        attributes: ['id', 'SourceId', 'StorageId'],
+      });
       if (data) {
         return res.status(200).json(data);
       }
@@ -17,6 +18,7 @@ class BucketController {
     const { id } = req.params;
     try {
       const data = await Bucket.findOne({
+        attributes: ['id', 'SourceId', 'StorageId'],
         where: {
           id: id,
         },
@@ -53,35 +55,14 @@ class BucketController {
     }
   }
 
-  static create(req, res, next) {
-    try {
-      const data = {
-        id: uuidv4(),
-        SourceId: req.body.SourceId,
-        BucketId: req.body.BucketId,
-      };
-
-      Bucket.create(data)
-        .then((data) => {
-          return res.status(201).json({ data });
-        })
-        .catch((error) => {
-          return res.status(500).json({ message: error });
-        });
-    } catch (error) {
-      next(error);
-    }
-  }
-
   static async createBucket(req, res, next) {
     const data = {
-      id: uuidv4(),
       SourceId: req.body.SourceId,
-      BucketId: req.body.BucketId,
+      StorageId: req.body.StorageId,
     };
 
     try {
-      const assignBucket = await Bucket.create(data);
+      const assignBucket = await Bucket.create({ ...data });
       if (assignBucket) {
         return res.status(201).json({
           data,

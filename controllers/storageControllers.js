@@ -120,38 +120,6 @@ class StorageController {
       next(error);
     }
   }
-
-  static async bucketList(req, res, next) {
-    try {
-      const buckets = await Bucket.findAll();
-      if (buckets) {
-        return res.status(200).json({
-          buckets,
-        });
-      }
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  static async assignBucket(req, res, next) {
-    const data = {
-      id: uuidv4(),
-      SourceId: req.body.SourceId,
-      StorageId: req.body.StorageId,
-    };
-
-    try {
-      const assignBucket = await Bucket.create(data);
-      if (assignBucket) {
-        return res.status(201).json({
-          data,
-        });
-      }
-    } catch (error) {
-      next(error);
-    }
-  }
 }
 
 module.exports = StorageController;

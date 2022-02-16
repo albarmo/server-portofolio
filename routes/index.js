@@ -21,6 +21,6 @@ router.use('/wishlist', wishlistRouter);
 router.use('/categories', categoriesRouter);
 router.use('/advertisement', advertisementRouter);
 router.use('/storage', storageRouter);
-router.use('/bucket', storageRouter);
+router.use('/bucket', bucketRouter);
 
 module.exports = router;

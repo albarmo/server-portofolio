@@ -4,8 +4,9 @@ module.exports = {
     await queryInterface.createTable('Buckets', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
       },
       SourceId: {
         type: Sequelize.UUID,
@@ -29,6 +30,7 @@ module.exports = {
         onUpdate: 'cascade',
         unique: 'unique-storage-per-product-2',
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
