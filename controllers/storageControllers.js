@@ -121,6 +121,19 @@ class StorageController {
     }
   }
 
+  static async bucketList(req, res, next) {
+    try {
+      const buckets = await Bucket.findAll();
+      if (buckets) {
+        return res.status(200).json({
+          buckets,
+        });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async assignBucket(req, res, next) {
     const data = {
       id: uuidv4(),
@@ -128,17 +141,14 @@ class StorageController {
       StorageId: req.body.StorageId,
     };
 
-    console.log(data, 'data payload relation');
-
     try {
-      const assignBucket = await Bucket.create({ id: uuidv4() });
+      const assignBucket = await Bucket.create(data);
       if (assignBucket) {
         return res.status(201).json({
-          history,
+          data,
         });
       }
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

@@ -24,10 +24,19 @@ module.exports = (sequelize, DataTypes) => {
         beforeCreate(instance) {
           instance.id = uuidv4();
         },
+        beforeCreate: (bucket, options) => {
+          bucket.id = uuidv4();
+        },
       },
       sequelize,
       modelName: 'Bucket',
     }
   );
+
+  Bucket.beforeValidate(async (bucket, options) => {
+    let id = uuidv4();
+    bucket.id = id;
+  });
+
   return Bucket;
 };
