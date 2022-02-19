@@ -3,9 +3,10 @@ const { Op } = require('sequelize');
 
 class CartControllers {
   static async list(req, res, next) {
+    const status = req.params.status;
     try {
       const data = await Cart.findAll({
-        where: { UserId: req.userData.id, status: 'unpaid' },
+        where: { UserId: req.userData.id, status: status },
         include: {
           model: Product,
           where: {
@@ -13,7 +14,6 @@ class CartControllers {
               [Op.gt]: 0,
             },
           },
-          attributes: ['id', 'title'],
           order: [['title', 'ASC']],
         },
       });
@@ -137,13 +137,16 @@ class CartControllers {
     const UserId = req.userData.id;
     const CartId = req.params.id;
     const t = await sequelize.transaction();
+    const status = req.params.status;
+
 
     try {
       const cart = await Cart.findAll(
         {
           where: {
             UserId,
-            status: 'waiting-payment',
+            status: status,
+            id: CartId,
           },
         },
         { transaction: t }

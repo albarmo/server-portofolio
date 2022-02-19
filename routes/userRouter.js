@@ -6,6 +6,7 @@ userRouter.post('/register', UserController.register);
 userRouter.post('/login', UserController.login);
 
 userRouter.use(authentification);
+userRouter.get('/me', UserController.currentUser);
 userRouter.put('/:id', UserController.updateUser);
 
 userRouter.use(authorization);

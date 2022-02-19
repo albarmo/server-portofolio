@@ -4,12 +4,36 @@ const { generateAccessToken } = require('../helpers/jwt');
 
 class UserController {
   static async list(req, res, next) {
-    let data = await User.findAll();
+    let data = await User.findAll({});
     try {
       if (data) {
         return res.status(200).json({ users: data });
       } else {
         return res.status(500).json({ message: 'user table empty' });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async currentUser(req, res, next) {
+    const userId = req.userData.id;
+
+    if (!userId) return res.status(200).json({ msg: 'Invalid token!' });
+
+    try {
+      if (userId) {
+        const user = await User.findOne({
+          where: {
+            id: userId,
+          },
+        });
+
+        if (user) {
+          return res.status(200).json({ user });
+        } else {
+          return res.status(200).json({ msg: 'user not registred' });
+        }
       }
     } catch (error) {
       next(error);
