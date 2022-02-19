@@ -76,6 +76,26 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      variant: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart variant cannot be empty',
+          },
+        },
+      },
+      size: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Cart size cannot be empty',
+          },
+        },
+      },
     },
     {
       hooks: {

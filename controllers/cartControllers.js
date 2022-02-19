@@ -47,6 +47,8 @@ class CartControllers {
   static async create(req, res, next) {
     let UserId = req.userData.id;
     let ProductId = req.body.ProductId;
+    const variant = req.body.variant;
+    const size = req.body.size;
     let quantityInput = +req.body.quantity || 1;
 
     let inputData = {
@@ -57,7 +59,13 @@ class CartControllers {
       shippedDate: req.body.shippedDate,
       quantity: quantityInput,
       status: 'unpaid',
+      variant: variant,
+      size: size,
     };
+
+    //add field
+    // 1. variant
+    // 2. size
 
     try {
       const existingCart = await Cart.findOne({
@@ -65,8 +73,15 @@ class CartControllers {
           UserId,
           ProductId,
           status: 'unpaid',
+          variant: variant,
+          size: size,
         },
       });
+
+      console.log(existingCart);
+
+      //kalo dia ada update aja lang
+      //kalo dia gaada masukin
 
       if (existingCart) {
         let totalQuantity = existingCart.quantity + quantityInput;
@@ -138,7 +153,6 @@ class CartControllers {
     const CartId = req.params.id;
     const t = await sequelize.transaction();
     const status = req.params.status;
-
 
     try {
       const cart = await Cart.findAll(
