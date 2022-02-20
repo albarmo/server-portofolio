@@ -13,7 +13,7 @@ class ProductController {
             model: Categorie,
           },
         },
-        include: { model: Storage, as: 'StorageForProduct', attributes: ['id', 'file', 'type'] },
+        include: { model: Storage, as: 'StorageForProduct', attributes: ['id', 'file', 'type', 'title'] },
         where: {
           stock: {
             [Op.gt]: 0,

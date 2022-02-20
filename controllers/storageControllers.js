@@ -46,15 +46,19 @@ class StorageController {
         }
         const { file } = req.files;
         const imagePath = file ? '/' + file[0].filename : null;
+        const type = file ? '/' + file[0].mimetype : null;
+
+        console.log(file);
 
         let uploadData = {
           file: imagePath,
-          type: req.body.type,
+          type: type,
+          title: file[0].originalname.split('.')[0],
         };
 
         Storage.create(uploadData)
           .then((data) => {
-            return res.status(201).json({ id: data.id });
+            return res.status(201).json({ data });
           })
           .catch((error) => {
             return res.status(500).json({ message: error });

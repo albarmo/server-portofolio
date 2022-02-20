@@ -1,0 +1,702 @@
+[
+  {
+    "id": "bf8bd82d-15ab-403b-8573-6e8557fbec9e",
+    "title": "Alya Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "babyblue,cream,pink,blue",
+    "size": "2,4,6,8",
+    "description": "Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339747118.jpeg",
+    "price": 134999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:49:07.123Z",
+    "updatedAt": "2022-02-20T06:49:07.123Z",
+    "StorageForProduct": [
+      {
+        "id": "49910270-60db-42e7-aa06-21a029953e9e",
+        "file": "/STORAGE_IMAGE1645341117597.jpeg",
+        "type": "/image/jpeg",
+        "title": "Alya-dress-black",
+        "Bucket": {
+          "SourceId": "bf8bd82d-15ab-403b-8573-6e8557fbec9e",
+          "StorageId": "49910270-60db-42e7-aa06-21a029953e9e",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "95e20c72-ad43-45d5-ad41-c294c571bcd1",
+        "file": "/STORAGE_IMAGE1645341111927.jpeg",
+        "type": "/image/jpeg",
+        "title": "Alya-dress-babyblue",
+        "Bucket": {
+          "SourceId": "bf8bd82d-15ab-403b-8573-6e8557fbec9e",
+          "StorageId": "95e20c72-ad43-45d5-ad41-c294c571bcd1",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "6b57fce5-8e99-4130-a47d-881597fe0c38",
+        "file": "/STORAGE_IMAGE1645341126288.jpeg",
+        "type": "/image/jpeg",
+        "title": "Alya-dress-pink",
+        "Bucket": {
+          "SourceId": "bf8bd82d-15ab-403b-8573-6e8557fbec9e",
+          "StorageId": "6b57fce5-8e99-4130-a47d-881597fe0c38",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "ebe8ce25-cfeb-4575-9595-517286190412",
+        "file": "/STORAGE_IMAGE1645341122187.jpeg",
+        "type": "/image/jpeg",
+        "title": "Alya-dress-cream",
+        "Bucket": {
+          "SourceId": "bf8bd82d-15ab-403b-8573-6e8557fbec9e",
+          "StorageId": "ebe8ce25-cfeb-4575-9595-517286190412",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "0a39cc9f-2b61-4a3d-aeed-a7441c7f4105",
+    "title": "Amona Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "brown,black,blue",
+    "size": "2,4,6,8",
+    "description": "Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, acara ulang tahun dan acara lainnya.\nTersedia 3 Warna : Black, Brown, Blue",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339448899.jpeg",
+    "price": 134999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:44:08.905Z",
+    "updatedAt": "2022-02-20T06:44:08.905Z",
+    "StorageForProduct": [
+      {
+        "id": "c91eab8d-e18e-4928-8c30-d69af5645ef9",
+        "file": "/STORAGE_IMAGE1645341378100.jpeg",
+        "type": "/image/jpeg",
+        "title": "Amona-dress-brown",
+        "Bucket": {
+          "SourceId": "0a39cc9f-2b61-4a3d-aeed-a7441c7f4105",
+          "StorageId": "c91eab8d-e18e-4928-8c30-d69af5645ef9",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "5109af81-af52-40ad-803b-5cc4eb87f4ca",
+        "file": "/STORAGE_IMAGE1645341351511.jpeg",
+        "type": "/image/jpeg",
+        "title": "Amona-dress-all",
+        "Bucket": {
+          "SourceId": "0a39cc9f-2b61-4a3d-aeed-a7441c7f4105",
+          "StorageId": "5109af81-af52-40ad-803b-5cc4eb87f4ca",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "a94a5163-34c1-4c78-a989-f39526b74050",
+        "file": "/STORAGE_IMAGE1645341369640.jpeg",
+        "type": "/image/jpeg",
+        "title": "Amona-dress-black",
+        "Bucket": {
+          "SourceId": "0a39cc9f-2b61-4a3d-aeed-a7441c7f4105",
+          "StorageId": "a94a5163-34c1-4c78-a989-f39526b74050",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "3e30d80b-5fc2-44cd-b7cd-5fc481eb47f2",
+        "file": "/STORAGE_IMAGE1645341373911.jpeg",
+        "type": "/image/jpeg",
+        "title": "Amona-dress-blue",
+        "Bucket": {
+          "SourceId": "0a39cc9f-2b61-4a3d-aeed-a7441c7f4105",
+          "StorageId": "3e30d80b-5fc2-44cd-b7cd-5fc481eb47f2",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+    "title": "Arwa Set",
+    "CollectionId": "ad40f375-ca73-4f34-bb53-6f88d13cbfaa",
+    "color": "brown,green,pink,yellow",
+    "size": "2,4,6,8",
+    "description": "Stripe Set\nMaterial Katun\n\nHigh Quality!\n\nBaju dan celana (ONE SET) anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339343291.jpeg",
+    "price": 184999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:42:23.296Z",
+    "updatedAt": "2022-02-20T06:42:23.296Z",
+    "StorageForProduct": [
+      {
+        "id": "29fc990f-d687-4724-88ea-6320add4d67b",
+        "file": "/STORAGE_IMAGE1645341941652.jpeg",
+        "type": "/image/jpeg",
+        "title": "Arwa-set-yellow",
+        "Bucket": {
+          "SourceId": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+          "StorageId": "29fc990f-d687-4724-88ea-6320add4d67b",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "d4a1a37d-fb23-4a45-be05-437d37248e5f",
+        "file": "/STORAGE_IMAGE1645341935524.jpeg",
+        "type": "/image/jpeg",
+        "title": "Arwa-set-pink",
+        "Bucket": {
+          "SourceId": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+          "StorageId": "d4a1a37d-fb23-4a45-be05-437d37248e5f",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "b7569061-84a8-4420-ba1d-49e35ded7789",
+        "file": "/STORAGE_IMAGE1645341931148.jpeg",
+        "type": "/image/jpeg",
+        "title": "Arwa-set-green",
+        "Bucket": {
+          "SourceId": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+          "StorageId": "b7569061-84a8-4420-ba1d-49e35ded7789",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "4e5268f7-beff-4a93-acbd-30cbc02ac7b1",
+        "file": "/STORAGE_IMAGE1645342151681.jpeg",
+        "type": "/image/jpeg",
+        "title": "Arwa-set-brown",
+        "Bucket": {
+          "SourceId": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+          "StorageId": "4e5268f7-beff-4a93-acbd-30cbc02ac7b1",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "0aa2bb52-c993-4751-9ba4-3f8d9b1f5276",
+        "file": "/STORAGE_IMAGE1645341926671.jpeg",
+        "type": "/image/jpeg",
+        "title": "Arwa-set-all",
+        "Bucket": {
+          "SourceId": "5f50b257-7b0d-4463-bf27-31ce8bbb3f67",
+          "StorageId": "0aa2bb52-c993-4751-9ba4-3f8d9b1f5276",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+    "title": "Deema Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "brown,black,green,blue",
+    "size": "4,6,8,10",
+    "description": "Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339935272.jpeg",
+    "price": 134999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:52:15.276Z",
+    "updatedAt": "2022-02-20T06:52:15.276Z",
+    "StorageForProduct": [
+      {
+        "id": "4fd9e603-009c-463b-a9b2-28e2fd731caa",
+        "file": "/STORAGE_IMAGE1645342051743.jpeg",
+        "type": "/image/jpeg",
+        "title": "Deema-dress-green",
+        "Bucket": {
+          "SourceId": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+          "StorageId": "4fd9e603-009c-463b-a9b2-28e2fd731caa",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "f9b70454-bf70-4770-884f-42adca029f1c",
+        "file": "/STORAGE_IMAGE1645341969552.jpeg",
+        "type": "/image/jpeg",
+        "title": "Deema-dress-brown",
+        "Bucket": {
+          "SourceId": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+          "StorageId": "f9b70454-bf70-4770-884f-42adca029f1c",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "e3d2e25a-0046-4481-882c-3737ddd4d9b1",
+        "file": "/STORAGE_IMAGE1645341962533.jpeg",
+        "type": "/image/jpeg",
+        "title": "Deema-dress-blue",
+        "Bucket": {
+          "SourceId": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+          "StorageId": "e3d2e25a-0046-4481-882c-3737ddd4d9b1",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "2343ab18-6b2b-4086-9908-a20cf851d443",
+        "file": "/STORAGE_IMAGE1645341954188.jpeg",
+        "type": "/image/jpeg",
+        "title": "Deema-dress-all",
+        "Bucket": {
+          "SourceId": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+          "StorageId": "2343ab18-6b2b-4086-9908-a20cf851d443",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "10cb358d-f559-44e6-8787-2c36388452a7",
+        "file": "/STORAGE_IMAGE1645341958633.jpeg",
+        "type": "/image/jpeg",
+        "title": "Deema-dress-black",
+        "Bucket": {
+          "SourceId": "0a0753f2-d8cd-4e05-b3bb-1025485cca06",
+          "StorageId": "10cb358d-f559-44e6-8787-2c36388452a7",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "eccd18a2-979f-475b-a204-2fe7d54aae52",
+    "title": "Lialy Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "cream,black,blue",
+    "size": "2,4,6,8",
+    "description": "Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan dan acara lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339591841.jpeg",
+    "price": 109999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:46:31.848Z",
+    "updatedAt": "2022-02-20T06:46:31.848Z",
+    "StorageForProduct": [
+      {
+        "id": "80910e19-ad0b-44dc-9343-e4f41b909149",
+        "file": "/STORAGE_IMAGE1645342225372.jpeg",
+        "type": "/image/jpeg",
+        "title": "Lialy-dress-cream",
+        "Bucket": {
+          "SourceId": "eccd18a2-979f-475b-a204-2fe7d54aae52",
+          "StorageId": "80910e19-ad0b-44dc-9343-e4f41b909149",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "80bb2aab-b474-4248-8627-0e97035565be",
+        "file": "/STORAGE_IMAGE1645342221359.jpeg",
+        "type": "/image/jpeg",
+        "title": "Lialy-dress-blue",
+        "Bucket": {
+          "SourceId": "eccd18a2-979f-475b-a204-2fe7d54aae52",
+          "StorageId": "80bb2aab-b474-4248-8627-0e97035565be",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "85e241fa-a684-486e-9115-9980b4bbe7b4",
+        "file": "/STORAGE_IMAGE1645342216876.jpeg",
+        "type": "/image/jpeg",
+        "title": "Lialy-dress-black",
+        "Bucket": {
+          "SourceId": "eccd18a2-979f-475b-a204-2fe7d54aae52",
+          "StorageId": "85e241fa-a684-486e-9115-9980b4bbe7b4",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "03ac0f76-9e9b-49fb-acd0-9aded9a9b50b",
+        "file": "/STORAGE_IMAGE1645342212128.jpeg",
+        "type": "/image/jpeg",
+        "title": "Lialy-dress-all",
+        "Bucket": {
+          "SourceId": "eccd18a2-979f-475b-a204-2fe7d54aae52",
+          "StorageId": "03ac0f76-9e9b-49fb-acd0-9aded9a9b50b",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+    "title": "Muneera Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "black,cream,pink,babyblue",
+    "size": "2,4,6,8",
+    "description": "MUNEERA DREES\nMotif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.\nTersedia 4 Warna : Baby blue, Pink, Cream, Black",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339641933.jpeg",
+    "price": 134999,
+    "weight": "375",
+    "createdAt": "2022-02-20T05:59:43.966Z",
+    "updatedAt": "2022-02-20T06:47:21.936Z",
+    "StorageForProduct": [
+      {
+        "id": "b8730148-d478-4a74-9cde-36b5433bab10",
+        "file": "/STORAGE_IMAGE1645342318280.jpeg",
+        "type": "/image/jpeg",
+        "title": "Munera-dress-pink",
+        "Bucket": {
+          "SourceId": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+          "StorageId": "b8730148-d478-4a74-9cde-36b5433bab10",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "6d0ff177-0340-44f2-b325-7001572f9ad7",
+        "file": "/STORAGE_IMAGE1645342298073.jpeg",
+        "type": "/image/jpeg",
+        "title": "Munera-dress-all",
+        "Bucket": {
+          "SourceId": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+          "StorageId": "6d0ff177-0340-44f2-b325-7001572f9ad7",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "44ff8824-5bf7-4916-b495-493644e0ed4e",
+        "file": "/STORAGE_IMAGE1645342301895.jpeg",
+        "type": "/image/jpeg",
+        "title": "Munera-dress-black",
+        "Bucket": {
+          "SourceId": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+          "StorageId": "44ff8824-5bf7-4916-b495-493644e0ed4e",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "b47d3932-c661-444e-996a-0166f94164dd",
+        "file": "/STORAGE_IMAGE1645342306327.jpeg",
+        "type": "/image/jpeg",
+        "title": "Munera-dress-blue",
+        "Bucket": {
+          "SourceId": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+          "StorageId": "b47d3932-c661-444e-996a-0166f94164dd",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "94c9f7c2-1ed2-4760-8459-d9b86aeba7ab",
+        "file": "/STORAGE_IMAGE1645342313293.jpeg",
+        "type": "/image/jpeg",
+        "title": "Munera-dress-cream",
+        "Bucket": {
+          "SourceId": "191b537f-7d73-46a7-bbcf-689915bcfe0e",
+          "StorageId": "94c9f7c2-1ed2-4760-8459-d9b86aeba7ab",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "885ef0f2-583e-4a1d-988f-a9cfd02fcf3d",
+    "title": "Nesreen Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "yellow,black,blue",
+    "size": "2,4,6,8",
+    "description": "NESREEN DRESS\nMotif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, dan acara lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339528334.jpeg",
+    "price": 134999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:45:28.339Z",
+    "updatedAt": "2022-02-20T06:45:28.339Z",
+    "StorageForProduct": [
+      {
+        "id": "7a60aa4c-cbc2-43c0-932c-6ccb8b066781",
+        "file": "/STORAGE_IMAGE1645342255259.jpeg",
+        "type": "/image/jpeg",
+        "title": "Nesreen-dress-all",
+        "Bucket": {
+          "SourceId": "885ef0f2-583e-4a1d-988f-a9cfd02fcf3d",
+          "StorageId": "7a60aa4c-cbc2-43c0-932c-6ccb8b066781",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "744dc965-325f-4996-81d8-df4b864feb5b",
+        "file": "/STORAGE_IMAGE1645342258771.jpeg",
+        "type": "/image/jpeg",
+        "title": "Nesreen-dress-black",
+        "Bucket": {
+          "SourceId": "885ef0f2-583e-4a1d-988f-a9cfd02fcf3d",
+          "StorageId": "744dc965-325f-4996-81d8-df4b864feb5b",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "27393fb6-62c1-42cb-a48a-e27f2dfee0b0",
+        "file": "/STORAGE_IMAGE1645342262628.jpeg",
+        "type": "/image/jpeg",
+        "title": "Nesreen-dress-blue",
+        "Bucket": {
+          "SourceId": "885ef0f2-583e-4a1d-988f-a9cfd02fcf3d",
+          "StorageId": "27393fb6-62c1-42cb-a48a-e27f2dfee0b0",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "40cb61d2-72a0-4187-a709-aec2f8939bc4",
+        "file": "/STORAGE_IMAGE1645342267010.jpeg",
+        "type": "/image/jpeg",
+        "title": "Nesreen-dress-yellow",
+        "Bucket": {
+          "SourceId": "885ef0f2-583e-4a1d-988f-a9cfd02fcf3d",
+          "StorageId": "40cb61d2-72a0-4187-a709-aec2f8939bc4",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "25512485-4333-41d8-ac4c-961d005156d6",
+    "title": "Noura Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "brown,mint,pink,babypink",
+    "size": "2,4,6,8",
+    "description": "Motif Renda\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645339858045.jpeg",
+    "price": 184999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:50:58.050Z",
+    "updatedAt": "2022-02-20T06:50:58.050Z",
+    "StorageForProduct": [
+      {
+        "id": "ad5bf68e-1e72-487a-90c1-86ae6c6fed0d",
+        "file": "/STORAGE_IMAGE1645342377515.jpeg",
+        "type": "/image/jpeg",
+        "title": "Noura-dress-pink",
+        "Bucket": {
+          "SourceId": "25512485-4333-41d8-ac4c-961d005156d6",
+          "StorageId": "ad5bf68e-1e72-487a-90c1-86ae6c6fed0d",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "cc76866d-c9d7-4aca-80a4-d52bb5bdf2bf",
+        "file": "/STORAGE_IMAGE1645342357877.jpeg",
+        "type": "/image/jpeg",
+        "title": "Noura-dress-all",
+        "Bucket": {
+          "SourceId": "25512485-4333-41d8-ac4c-961d005156d6",
+          "StorageId": "cc76866d-c9d7-4aca-80a4-d52bb5bdf2bf",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "e42cd67f-e5bd-456a-939e-d530e1772e8d",
+        "file": "/STORAGE_IMAGE1645342371614.jpeg",
+        "type": "/image/jpeg",
+        "title": "Noura-dress-mint",
+        "Bucket": {
+          "SourceId": "25512485-4333-41d8-ac4c-961d005156d6",
+          "StorageId": "e42cd67f-e5bd-456a-939e-d530e1772e8d",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "80370360-38fe-4019-b7be-cbd3267a1848",
+        "file": "/STORAGE_IMAGE1645342367267.jpeg",
+        "type": "/image/jpeg",
+        "title": "Noura-dress-brown",
+        "Bucket": {
+          "SourceId": "25512485-4333-41d8-ac4c-961d005156d6",
+          "StorageId": "80370360-38fe-4019-b7be-cbd3267a1848",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "0eb0f0b8-76ed-463a-bb12-9e8ba9e1e9bd",
+        "file": "/STORAGE_IMAGE1645342363047.jpeg",
+        "type": "/image/jpeg",
+        "title": "Noura-dress-baby-pink",
+        "Bucket": {
+          "SourceId": "25512485-4333-41d8-ac4c-961d005156d6",
+          "StorageId": "0eb0f0b8-76ed-463a-bb12-9e8ba9e1e9bd",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "251877c7-87cf-4f07-97b3-18dbce21cf3d",
+    "title": "Ruba Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "brown,black,cream,blue",
+    "size": "4,6,8,10",
+    "description": "Motif Kotak-kotak\nMaterial Katun dan Satin\n\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645340015329.jpeg",
+    "price": 184999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:53:35.334Z",
+    "updatedAt": "2022-02-20T06:53:35.334Z",
+    "StorageForProduct": [
+      {
+        "id": "296cbf6b-6ee3-42db-82cf-c05fe9bfb8ab",
+        "file": "/STORAGE_IMAGE1645342403596.jpeg",
+        "type": "/image/jpeg",
+        "title": "Ruba-dress-all",
+        "Bucket": {
+          "SourceId": "251877c7-87cf-4f07-97b3-18dbce21cf3d",
+          "StorageId": "296cbf6b-6ee3-42db-82cf-c05fe9bfb8ab",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "52a65af1-726f-4c30-8c4c-27ecab4ecd1c",
+        "file": "/STORAGE_IMAGE1645342421532.jpeg",
+        "type": "/image/jpeg",
+        "title": "Ruba-dress-cream",
+        "Bucket": {
+          "SourceId": "251877c7-87cf-4f07-97b3-18dbce21cf3d",
+          "StorageId": "52a65af1-726f-4c30-8c4c-27ecab4ecd1c",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "a50fdf1a-118e-45c2-a062-632ecdbe9a79",
+        "file": "/STORAGE_IMAGE1645342413265.jpeg",
+        "type": "/image/jpeg",
+        "title": "Ruba-dress-blue",
+        "Bucket": {
+          "SourceId": "251877c7-87cf-4f07-97b3-18dbce21cf3d",
+          "StorageId": "a50fdf1a-118e-45c2-a062-632ecdbe9a79",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "4c0022f2-067a-4e4a-b748-0895c0b493c8",
+        "file": "/STORAGE_IMAGE1645342408039.jpeg",
+        "type": "/image/jpeg",
+        "title": "Ruba-dress-black",
+        "Bucket": {
+          "SourceId": "251877c7-87cf-4f07-97b3-18dbce21cf3d",
+          "StorageId": "4c0022f2-067a-4e4a-b748-0895c0b493c8",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "99fec148-029d-4088-a181-679483222d30",
+    "title": "Zahra Dress",
+    "CollectionId": "06f6d04f-338b-49ca-a905-65faec85a5b5",
+    "color": "white,black,gold,gray",
+    "size": "4,6,8,10",
+    "description": "Material Sifon Satin\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.",
+    "stock": 10,
+    "images": "/PRODUCT_IMAGE1645340138599.jpeg",
+    "price": 194999,
+    "weight": "375",
+    "createdAt": "2022-02-20T06:55:38.604Z",
+    "updatedAt": "2022-02-20T06:55:38.604Z",
+    "StorageForProduct": [
+      {
+        "id": "3860ae05-2e12-446c-b393-317353776184",
+        "file": "/STORAGE_IMAGE1645342481275.jpeg",
+        "type": "/image/jpeg",
+        "title": "Zahra-dress-white",
+        "Bucket": {
+          "SourceId": "99fec148-029d-4088-a181-679483222d30",
+          "StorageId": "3860ae05-2e12-446c-b393-317353776184",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "3eeadcef-c72e-4b99-82ed-7185803cd96c",
+        "file": "/STORAGE_IMAGE1645342461615.jpeg",
+        "type": "/image/jpeg",
+        "title": "Zahra-dress-all",
+        "Bucket": {
+          "SourceId": "99fec148-029d-4088-a181-679483222d30",
+          "StorageId": "3eeadcef-c72e-4b99-82ed-7185803cd96c",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "ba9505ad-7b4e-4ee0-bc72-ffb5628c84bf",
+        "file": "/STORAGE_IMAGE1645342465807.jpeg",
+        "type": "/image/jpeg",
+        "title": "Zahra-dress-black",
+        "Bucket": {
+          "SourceId": "99fec148-029d-4088-a181-679483222d30",
+          "StorageId": "ba9505ad-7b4e-4ee0-bc72-ffb5628c84bf",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "c4a0b0d7-9408-40a0-bfdf-3a70c15615e1",
+        "file": "/STORAGE_IMAGE1645342469689.jpeg",
+        "type": "/image/jpeg",
+        "title": "Zahra-dress-blue",
+        "Bucket": {
+          "SourceId": "99fec148-029d-4088-a181-679483222d30",
+          "StorageId": "c4a0b0d7-9408-40a0-bfdf-3a70c15615e1",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      },
+      {
+        "id": "065a5ace-ad3a-4f03-871a-9040e68c5e5b",
+        "file": "/STORAGE_IMAGE1645342475849.jpeg",
+        "type": "/image/jpeg",
+        "title": "Zahra-dress-gold",
+        "Bucket": {
+          "SourceId": "99fec148-029d-4088-a181-679483222d30",
+          "StorageId": "065a5ace-ad3a-4f03-871a-9040e68c5e5b",
+          "createdAt": "2022-02-20T07:41:05.978Z",
+          "updatedAt": "2022-02-20T07:41:05.978Z"
+        }
+      }
+    ]
+  }
+]
