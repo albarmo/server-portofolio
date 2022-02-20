@@ -1,0 +1,166 @@
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert(
+      'Products',
+      [
+        {
+          id: 'bf8bd82d-15ab-403b-8573-6e8557fbec9e',
+          title: 'Alya Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'babyblue,cream,pink,blue',
+          size: '2,4,6,8',
+          description:
+            'Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339747118.jpeg',
+          price: 134999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '0a39cc9f-2b61-4a3d-aeed-a7441c7f4105',
+          title: 'Amona Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'brown,black,blue',
+          size: '2,4,6,8',
+          description:
+            'Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, acara ulang tahun dan acara lainnya.\nTersedia 3 Warna : Black, Brown, Blue',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339448899.jpeg',
+          price: 134999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '5f50b257-7b0d-4463-bf27-31ce8bbb3f67',
+          title: 'Arwa Set',
+          CollectionId: 'ad40f375-ca73-4f34-bb53-6f88d13cbfaa',
+          color: 'brown,green,pink,yellow',
+          size: '2,4,6,8',
+          description:
+            'Stripe Set\nMaterial Katun\n\nHigh Quality!\n\nBaju dan celana (ONE SET) anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339343291.jpeg',
+          price: 184999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '0a0753f2-d8cd-4e05-b3bb-1025485cca06',
+          title: 'Deema Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'brown,black,green,blue',
+          size: '4,6,8,10',
+          description:
+            'Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339935272.jpeg',
+          price: 134999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: 'eccd18a2-979f-475b-a204-2fe7d54aae52',
+          title: 'Lialy Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'cream,black,blue',
+          size: '2,4,6,8',
+          description:
+            'Motif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan dan acara lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339591841.jpeg',
+          price: 109999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '191b537f-7d73-46a7-bbcf-689915bcfe0e',
+          title: 'Muneera Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'black,cream,pink,babyblue',
+          size: '2,4,6,8',
+          description:
+            'MUNEERA DREES\nMotif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.\nTersedia 4 Warna : Baby blue, Pink, Cream, Black',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339641933.jpeg',
+          price: 134999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '885ef0f2-583e-4a1d-988f-a9cfd02fcf3d',
+          title: 'Nesreen Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'yellow,black,blue',
+          size: '2,4,6,8',
+          description:
+            'NESREEN DRESS\nMotif Kotak-kotak\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk santai, jalan-jalan, dan acara lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339528334.jpeg',
+          price: 134999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '25512485-4333-41d8-ac4c-961d005156d6',
+          title: 'Noura Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'brown,mint,pink,babypink',
+          size: '2,4,6,8',
+          description:
+            'Motif Renda\nMaterial Katun\n\nHigh Quality!\n\nDress anak cocok untuk jalan-jalan, acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645339858045.jpeg',
+          price: 184999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '251877c7-87cf-4f07-97b3-18dbce21cf3d',
+          title: 'Ruba Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'brown,black,cream,blue',
+          size: '4,6,8,10',
+          description:
+            'Motif Kotak-kotak\nMaterial Katun dan Satin\n\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645340015329.jpeg',
+          price: 184999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '99fec148-029d-4088-a181-679483222d30',
+          title: 'Zahra Dress',
+          CollectionId: '06f6d04f-338b-49ca-a905-65faec85a5b5',
+          color: 'white,black,gold,gray',
+          size: '4,6,8,10',
+          description:
+            'Material Sifon Satin\nHigh Quality!\n\nDress anak cocok untuk acara ulang tahun, pesta, dan acara formal lainnya.',
+          stock: 10,
+          images: '/PRODUCT_IMAGE1645340138599.jpeg',
+          price: 194999,
+          weight: '375',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Products', null, {});
+  },
+};

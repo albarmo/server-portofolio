@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "31d9f85e-c941-497e-a3e8-399bb876d67d",
+      "fullname": "superadmin-magin-1",
+      "email": "servermagin@gmail.com ",
+      "phone": "085692495134",
+      "type": "admin",
+      "address": "403 George Ave.Shakopee, MN 55379",
+      "region": "Indonesia",
+      "gender": "male",
+      "password": "$2a$10$3fdO2O9Ynz2Nq4eZi/QD9ekepmcFmISw/tzruWZ4dQ0ZmfCwCVPkW",
+      "createdAt": "2022-02-19T15:26:49.621Z",
+      "updatedAt": "2022-02-19T15:26:49.621Z"
+    },
+    {
+      "id": "6497d027-d432-44e9-ab02-aa539caf50ff",
+      "fullname": "People One",
+      "email": "people@magin.id",
+      "phone": "087885711430",
+      "type": "customer",
+      "address": "Jakarta Selatan",
+      "region": "DKI Jakarta",
+      "gender": "Male",
+      "password": "$2a$10$x6IYy9zPaoy1VKIMZAWptuhYXybgzvLU6JEqWOTs0ssiAhhGQkHtS",
+      "createdAt": "2022-02-19T15:47:34.460Z",
+      "updatedAt": "2022-02-19T15:47:34.460Z"
+    }
+  ]
+}

@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       file: DataTypes.STRING,
       type: DataTypes.STRING,
+      title: DataTypes.STRING,
     },
     {
       hooks: {

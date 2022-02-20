@@ -216,6 +216,7 @@ class CartControllers {
   }
 
   static async checkout(req, res, next) {
+    console.log('checkouts');
     let UserId = req.userData.id;
     const t = await sequelize.transaction();
 
@@ -232,10 +233,13 @@ class CartControllers {
 
       for (const item of cart) {
         const product = await Product.findByPk(item.ProductId);
+        console.log(product, 'product');
 
         if (item.quantity > product.stock) {
+          console.log('masuk error out og stock');
           throw new Error('Product out of stock');
         } else {
+          console.log('masuk change stock');
           let newStock = product.stock - item.quantity;
           await product.update({ stock: newStock });
           await item.update({ status: 'waiting-payment' });
