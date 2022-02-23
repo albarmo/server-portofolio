@@ -236,6 +236,48 @@ class CartControllers {
       next(error);
     }
   }
+
+  static async cancelCheckout(req, res, next) {
+    const UserId = req.userData.id;
+    const CartId = req.params.id;
+    const t = await sequelize.transaction();
+
+    try {
+      const cart = await Cart.findAll(
+        {
+          where: {
+            UserId,
+            status: 'waiting-payment',
+          },
+        },
+        { transaction: t }
+      );
+
+      if (!cart?.lenght) {
+        try {
+          for (const item of cart) {
+            const product = await Product.findByPk(item.ProductId);
+            let revertStock = product.stock + item.quantity;
+
+            await product.update({ stock: revertStock });
+            await item.update({ status: 'cannceled' });
+          }
+          t.afterCommit(() => {
+            return res.status(200).json({ status: `sucess cancceled cart ${CartId}` });
+          });
+        } catch (error) {
+          await t.rollback();
+          return res.status(500).json({ status: `Error while revert product items stock` });
+        }
+
+        await t.commit();
+      } else {
+        return res.status(404).json({ status: `Cart not found` });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = CartControllers;
