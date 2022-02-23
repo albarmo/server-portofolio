@@ -48,8 +48,6 @@ class StorageController {
         const imagePath = file ? '/' + file[0].filename : null;
         const type = file ? '/' + file[0].mimetype : null;
 
-        console.log(file);
-
         let uploadData = {
           file: imagePath,
           type: type,

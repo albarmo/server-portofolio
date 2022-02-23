@@ -1,5 +1,4 @@
 const { Cart, Product, sequelize } = require('../models');
-const { Op } = require('sequelize');
 
 class CartControllers {
   static async list(req, res, next) {
@@ -9,11 +8,6 @@ class CartControllers {
         where: { UserId: req.userData.id, status: status },
         include: {
           model: Product,
-          where: {
-            stock: {
-              [Op.gt]: 0,
-            },
-          },
           order: [['title', 'ASC']],
         },
       });
@@ -32,10 +26,11 @@ class CartControllers {
       const data = await Cart.findAll({
         include: {
           model: Product,
+          order: [['title', 'ASC']],
         },
       });
       if (data) {
-        return res.status(200).json({ data });
+        return res.status(200).json(data);
       } else {
         return res.status(404).json({ message: 'You dont have any cart' });
       }
@@ -63,10 +58,6 @@ class CartControllers {
       size: size,
     };
 
-    //add field
-    // 1. variant
-    // 2. size
-
     try {
       const existingCart = await Cart.findOne({
         where: {
@@ -77,11 +68,6 @@ class CartControllers {
           size: size,
         },
       });
-
-      console.log(existingCart);
-
-      //kalo dia ada update aja lang
-      //kalo dia gaada masukin
 
       if (existingCart) {
         let totalQuantity = existingCart.quantity + quantityInput;
@@ -216,7 +202,6 @@ class CartControllers {
   }
 
   static async checkout(req, res, next) {
-    console.log('checkouts');
     let UserId = req.userData.id;
     const t = await sequelize.transaction();
 
@@ -233,13 +218,10 @@ class CartControllers {
 
       for (const item of cart) {
         const product = await Product.findByPk(item.ProductId);
-        console.log(product, 'product');
 
         if (item.quantity > product.stock) {
-          console.log('masuk error out og stock');
           throw new Error('Product out of stock');
         } else {
-          console.log('masuk change stock');
           let newStock = product.stock - item.quantity;
           await product.update({ stock: newStock });
           await item.update({ status: 'waiting-payment' });

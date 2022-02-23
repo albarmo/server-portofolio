@@ -11,5 +11,5 @@ cartRouter.delete('/:id/:status', CartController.delete);
 cartRouter.get('/history/:status', CartController.getCartHistoryByStatus);
 
 cartRouter.use(authorization);
-cartRouter.get('/all', CartController.allChart);
+cartRouter.get('/', CartController.allChart);
 module.exports = cartRouter;
