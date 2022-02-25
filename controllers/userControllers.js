@@ -52,13 +52,12 @@ class UserController {
       password: req.body.password,
     };
 
-    User.create(inputDataRegister, {})
-      .then((data) => {
-        return res.status(201).json({ data });
-      })
-      .catch((error) => {
-        next(error);
-      });
+    try {
+      const register = await User.create(inputDataRegister);
+      return res.status(201).json(register);
+    } catch (error) {
+      next(error);
+    }
   }
 
   static async login(req, res, next) {

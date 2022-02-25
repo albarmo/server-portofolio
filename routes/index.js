@@ -10,6 +10,7 @@ const categoriesRouter = require('./categoriesRouter');
 const advertisementRouter = require('./advertisementRouter');
 const storageRouter = require('./storageRouter');
 const bucketRouter = require('./bucketsRouter');
+const ongkirRouter = require('./ongkirRouter');
 
 router.use('/user', userRouter);
 router.use('/products', productRouter);
@@ -22,5 +23,7 @@ router.use('/categories', categoriesRouter);
 router.use('/advertisement', advertisementRouter);
 router.use('/storage', storageRouter);
 router.use('/bucket', bucketRouter);
+
+router.use('/raja-ongkir', ongkirRouter);
 
 module.exports = router;

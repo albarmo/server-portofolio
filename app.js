@@ -8,8 +8,8 @@ const logger = require('morgan');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 
-App.use(logger('dev'));
 App.use(cors());
+App.use(logger('dev'));
 
 App.use(express.urlencoded({ extended: 'false' }));
 App.use(express.json());
