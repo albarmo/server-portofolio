@@ -47,7 +47,10 @@ class UserController {
       phone: req.body.phone,
       type: req.body.type,
       address: req.body.address,
+      regionId: req.body.regionId,
       region: req.body.region,
+      cityId: req.body.cityId,
+      city: req.body.city,
       gender: req.body.gender,
       password: req.body.password,
     };
@@ -98,7 +101,10 @@ class UserController {
       phone: req.body.phone,
       type: req.body.type,
       address: req.body.address,
+      regionId: req.body.regionId,
       region: req.body.region,
+      cityId: req.body.cityId,
+      city: req.body.city,
       gender: req.body.gender,
       password: req.body.password,
     };
