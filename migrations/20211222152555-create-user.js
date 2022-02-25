@@ -29,7 +29,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      regionId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       region: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cityId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      city: {
         type: Sequelize.STRING,
         allowNull: false,
       },

@@ -69,6 +69,16 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      regionId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'User regionId cannot be null',
+          },
+        },
+      },
       region: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -76,6 +86,26 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             args: true,
             msg: 'User region cannot be empty',
+          },
+        },
+      },
+      cityId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'User cityId cannot be null',
+          },
+        },
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'User city cannot be empty',
           },
         },
       },
