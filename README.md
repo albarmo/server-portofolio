@@ -1,6 +1,6 @@
-# Magin-server
+# porto-server
 
-Backend for Magin E - Commerence, this app using postgres as database.
+Backend for Portofolio E - Commerence, this app using postgres as database.
 
 ## How to run development mode
 

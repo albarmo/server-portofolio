@@ -5,14 +5,7 @@ const { hashPassword } = require('../helpers/bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasMany(models.Cart, {
-        sourceKey: 'id',
-        foreignKey: 'UserId',
-      });
-      User.hasMany(models.Wishlist, {
-        sourceKey: 'id',
-        foreignKey: 'UserId',
-      });
+      //
     }
   }
   User.init(
@@ -41,83 +34,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: {
-          argv: true,
-          msg: 'phone number is already in use',
-        },
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User phone number cannot be empty',
-          },
-        },
-      },
+
       type: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User address cannot be empty',
-          },
-        },
-      },
-      regionId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User regionId cannot be null',
-          },
-        },
-      },
-      region: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User region cannot be empty',
-          },
-        },
-      },
-      cityId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User cityId cannot be null',
-          },
-        },
-      },
-      city: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User city cannot be empty',
-          },
-        },
-      },
-      gender: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'User gender cannot be empty',
-          },
-        },
       },
       password: {
         type: DataTypes.STRING,
@@ -139,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
         beforeCreate(instance) {
           instance.id = uuidv4();
           instance.password = hashPassword(instance.password);
-          instance.type = 'customer';
+          instance.type = 'admin';
         },
         beforeUpdate(instance) {
           instance.password = hashPassword(instance.password);

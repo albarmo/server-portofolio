@@ -1,7 +1,7 @@
 {
-  "name": "magin-server",
+  "name": "porto-server",
   "version": "1.0.0",
-  "description": "Backend for Magin E - Commerence",
+  "description": "Backend for Portofolio E - Commerence",
   "main": "index.js",
   "husky": {
     "hooks": {
@@ -20,15 +20,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/albarmo/magin-server.git"
+    "url": "git+https://github.com/albarmo/porto-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/albarmo/magin-server/issues"
+    "url": "https://github.com/albarmo/porto-server/issues"
   },
-  "homepage": "https://github.com/albarmo/magin-server#readme",
+  "homepage": "https://github.com/albarmo/porto-server#readme",
   "dependencies": {
     "axios": "^0.26.0",
     "bcryptjs": "^2.4.3",
